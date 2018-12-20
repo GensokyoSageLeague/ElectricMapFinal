@@ -28,35 +28,19 @@
     map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
 </script>
 <script type="text/javascript">
-    let (start, end, path) = params;
-
-    let startPoint = new this.BMap.Point(start.lng, start.lat);
-    let endPoint = new this.BMap.Point(end.lng, end.lat);
-
-    drawPoint(startPoint, 'start');
-    drawPoint(endPoint, 'end');
-
-    let pathPoint = [];
-
-    if (path.length > 0) {
-        _ForEach(path, item => {
-            let _point = new this.BMap.Point(item.lng, item.lat);
-            pathPoint.push(_point);
-            drawPoint(_point, 'path');
-        });
-    }
-
-    // 根据不同的type绘制不同的marker （起点、经点、终点）
-    function drawPoint(point, type){
-        let iconUrl = POINT_ICON[type]; // 通过不同的type 拿到对应的marker的icon url
-
-        let marker = new BMap.Marker(point, {
-            icon: new BMap.Icon(iconUrl, new BMap.Size(ICON_SIZE_WIDTH, ICON_SIZE_HEIGHT), {
-                imageSize: new BMap.Size(ICON_SIZE_WIDTH, ICON_SIZE_HEIGHT)
-            }),
-            offset: new BMap.Size(0, -ICON_SIZE_HEIGHT/2)
-        });
-
-        this.map.addOverlay(marker);
-    }
+    var polyline = new BMap.Polyline([
+    new BMap.Point(118.817139, 32.146839),
+    new BMap.Point(118.795552, 32.127325)
+    ],
+    { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
+    );
+    map.addOverlay(polyline);
+    var polyline = new BMap.Polyline([
+    new BMap.Point(118.795552, 32.127325),
+    new BMap.Point(118.815034, 32.109938)
+    ],
+    { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
+    );
+    map.addOverlay(polyline);
+    
 </script>
