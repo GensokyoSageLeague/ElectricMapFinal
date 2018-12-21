@@ -5,7 +5,12 @@ var myP3 = new BMap.Point(118.815034,32.109938);    //1103
 var myP4 = new BMap.Point(118.820486,32.117184);    //1104
 
 //创建驾车实例
-var driving = new BMap.DrivingRoute(map);    
+var driving = new BMap.DrivingRoute(map, {
+    renderOptions: {
+        map: map,
+        autoViewport: true
+    }
+});
 
 //创建驾车搜索
 driving.search(myP1, myP2);               
