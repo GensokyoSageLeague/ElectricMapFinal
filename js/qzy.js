@@ -18,4 +18,4 @@ driving.setSearchCompleteCallback(function(){
 
     var polyline = new BMap.Polyline(pts);     
     map.addOverlay(polyline);
-}
+})
