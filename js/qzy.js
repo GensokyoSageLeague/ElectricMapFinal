@@ -26,3 +26,22 @@ driving.setSearchCompleteCallback(function(){
    );
     map.addOverlay(polyline);
 })
+var m1 = new BMap.Marker(myP1);         //创建4个marker
+var m2 = new BMap.Marker(myP2);
+var m3 = new BMap.Marker(myP3);
+var m4 = new BMap.Marker(myP4);
+
+map.addOverlay(m1);
+map.addOverlay(m2);
+map.addOverlay(m3);
+map.addOverlay(m4);
+
+
+var lab1 = new BMap.Label("燕子矶公园", { position: myP1 });        //创建4个label
+var lab2 = new BMap.Label("长江观音景区", { position: myP2 });
+var lab3 = new BMap.Label("重庆捞翻天火锅", { position: myP3 });
+var lab4 = new BMap.Label("晓庄国际彩虹广场", { position: myP4 });
+map.addOverlay(lab1);
+map.addOverlay(lab2);
+map.addOverlay(lab3);
+map.addOverlay(lab4);
