@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        /*窗体显示*/
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: FangSong;
+            font-size: 14px;
+        }
+        /*地图显示*/
+        #l-map {
+            height: 100%;
+            width: 100%;
+            overflow: inherit;
+            margin: 0;
+            font-family: FangSong;
+            font-size: 14px;
+        }
+        /*搜索框显示*/
+        #r-result {
+            width: 500px;
+            height: 16px;
+            border: 3px solid cornflowerblue; /*边框大小和颜色*/
+            padding: 10px;
+            float: left;
+        }
+
+            #r-result input {
+                width: 430px;
+                outline: none; /*取消输入时的小蓝框*/
+                border-width: 0; /*取消输入文本的边框*/
+                color: #000000;
+                margin-left: 95px;
+            }
+        /*“搜索”按钮的样式*/
+        #btn {
+            position: absolute /*位置*/
+        }
+
+            #btn input {
+                float: left;
+                width: 100px;
+                height: 42px;
+                font-size: 20px;
+                background-color: cornflowerblue;
+                border-width: 0;
+                color: #ffffff;
+                font-family: FangSong;
+                font-weight: bold;
+            }
+        /*显示经纬度*/
+        #lonlat {
+            position: absolute /*位置*/
+        }
+
+    </style>
+    <script type="text/javascript" src="/54B8AE97-A931-9E49-8A8D-1701C68C58A8/main.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WbGUPAZmhtx13mWZIBo9ZIlYx5xp6ZUa"></script>
+    <title>搜索框初步实现</title>
+</head>
+<body>
+
+
+    <form action="" method="get">
+        <!--搜索框-->
+        <div id="r-result">
+            <input type="text" id="suggestId" size="20"
+                   value=" " style="width:400px;" />
+        </div>
+        <!--搜索附近-->
+        <div id="btn">
+            <i></i>
+            <input type="submit" name="name" value="搜索附近"
+                   onClick="sear(document.getElementById('btn').value);" />
+        </div>
+        <!--下拉列表-->
+        <div id="searchResultPanel" style="border:1px solid #C0C0C0;
+                  width:150px;height:auto; display:none;">
+
+        </div>
+        <!--经纬度-->
+        <input id="lonlat" name="lonlat" type="text">
+        <br />
+    </form>
+    <!--地图显示-->
+    <div id="l-map"></div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    // 百度地图API功能
+   function G(id) {
+        return document.getElementById(id);
+    }
+    //创建地图实例
+    var map = new BMap.Map("l-map");
+    //建立一个自动完成的对象
+    var ac = new BMap.Autocomplete(
+        {
+            "input": "suggestId"
+            , "location": map
+        });
+    //初始化地图,设置城市和地图级别。
+    map.centerAndZoom("南京栖霞", 13); 
+    //启用滚轮放大缩小
+    map.enableScrollWheelZoom();
+
+   //鼠标放在下拉列表上的事件
+    ac.addEventListener("onhighlight", function (e) { 
+        var str = "";
+        var _value = e.fromitem.value;
+        var value = "";
+        if (e.fromitem.index > -1) {
+            value = _value.province + _value.city + _value.district + _value.street + _value.business;
+        }
+        str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+        value = "";
+        if (e.toitem.index > -1) {
+            _value = e.toitem.value;
+            value = _value.province + _value.city + _value.district + _value.street + _value.business;
+        }
+        str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+        G("searchResultPanel").innerHTML = str;
+    });
+  
+    //鼠标点击下拉列表后的事件
+    var myValue;
+    ac.addEventListener("onconfirm", function (e) {   
+        var _value = e.item.value;
+        myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+        G("searchResultPanel").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+
+        setPlace();
+    });
+
+    function setPlace() {
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun() {
+            var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            map.centerAndZoom(pp, 18);
+            map.addOverlay(new BMap.Marker(pp));    //添加标注
+        }
+        var local = new BMap.LocalSearch(map, { //智能搜索
+            onSearchComplete: myFun
+        });
+        local.search(myValue);
+    }
+
+    //地图单击点显示经纬度和范围内的POI点
+    var x;
+    var y;
+        map.addEventListener("click",
+            function (f)
+            {
+                document.getElementById("lonlat").value = f.point.lng + ", " + f.point.lat;
+                x = f.point.lng;
+                y = f.point.lat;
+                var mypoint = new BMap.Point(x, y);
+                var mycircle = new BMap.Circle(mypoint, 1000,
+                    { fillColor: "blue", strokeWeight: 1, fillOpacity: 0.3, strokeOpacity: 0.3 });
+                map.addOverlay(mycircle);
+
+                /**
+                  * 判断点是否在圆形内,这里还需要依据点的特征属性写一个循环
+                  * param {Point} ourpoints 点对象
+                  * param {Circle} circle 圆形对象
+                  * returns {Boolean} 点在圆形内返回true,否则返回false
+                */
+                GeoUtils.isPointInCircle = function (ourpoints, mycircle) {
+                    //point与圆心距离小于圆形半径，则点在圆内，否则在圆外
+                    var c = mycircle.getCenter();
+                    var r = 1000;//设置的圆的半径
+                    var dis = GeoUtils.getDistance(point, c);
+                    if (dis <= r)//显示该点
+                    {
+                        var vectorMarker = new BMap.Marker(new BMap.Point(ourpoints.lng, ourpoints.lat),
+                            {// 指定Marker的icon属性为Symbol
+                                icon: new BMap.Symbol(BMap_Symbol_SHAPE_POINT, {
+                                    scale: 2,//图标缩放大小
+                                    fillColor: "orange",//填充颜色
+                                    fillOpacity: 0.8//填充透明度
+                                })
+                            });
+                        return true;
+                    }
+                    else//返回false
+                    {
+                        return false;
+                    }
+                }
+            }
+        );
+
+        
+    
+
+</script>
