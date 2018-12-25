@@ -13,9 +13,8 @@ var driving = new BMap.DrivingRoute(map, {
 });
 
 //创建驾车搜索
-driving.search(myP1, myP2);               
-driving.search(myP2, myP3); 
-driving.search(myP3, myP4); 
+driving.search(p1, p4, { waypoints: p1,p2 });//waypoints表示途经点        
+ 
 
 //绘制折线
 driving.setSearchCompleteCallback(function(){
