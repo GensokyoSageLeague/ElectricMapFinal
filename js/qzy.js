@@ -47,21 +47,18 @@ map.addOverlay(lab3);
 map.addOverlay(lab4);
 
 //创建鼠标点击事件与框框显示
-var route_x = new Array("118.817139");
-var route_y = new Array("32.146839");
-var route_title = new Array("江畔一日游");
+var route_title1 = new Array("江畔一日游");
 var route_discribe1 = new Array("紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，/n在城北的迈皋桥吃上一顿热火朝天的火锅，再到不远处的彩虹广场逛逛，美好的一天就这样结束了！");
 
-function addroute(point) {
-    
+function addroute(poyline) {    
     //添加图标点击事件
-    lab1.addEventListener("click", function () {
-        var opts1 = {
+    poyline.addEventListener("click", function () {
+        var opts1= {
             width: 250,     // 信息窗口宽度    
             height: 500,     // 信息窗口高度    
         }
         //添加信息窗口内容
-        var content1 = '<div class="point_content_title">' + route_title + '</div>' + '<br/>' +
+        var content1 = '<div class="point_content_title">' + route_title1 + '</div>' + '<br/>' +
                 '<div class="point_content_discribe">' + '路线简介: ' + route_discribe1 ;
         // 创建信息窗口对象 		
         var infoWindow1 = new BMap.InfoWindow(content1, opts1);
