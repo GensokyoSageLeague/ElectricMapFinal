@@ -19,7 +19,7 @@ driving1.search(myp1, myp4, { waypoints: [myp2, myp3] });//waypoints表示途经
 
 //绘制折线
 driving1.setSearchCompleteCallback(function () {
-    var pts = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+    var pts = driving1.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
 
     var polyline = new BMap.Polyline([pts],
 { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
