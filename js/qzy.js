@@ -62,12 +62,12 @@ var myp8 = new BMap.Point(118.901004, 32.056328);
 
 
 //创建驾车搜索
-driving.search(myp5, myp8, { waypoints: [myp6, myp7] });//waypoints表示途经点
+driving1.search(myp5, myp8, { waypoints: [myp6, myp7] });//waypoints表示途经点
 
 
 //绘制折线
-driving.setSearchCompleteCallback(function () {
-    var pts1 = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+driving1.setSearchCompleteCallback(function () {
+    var pts1 = driving1.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
 
     var polyline1 = new BMap.Polyline([pts1],
 { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
