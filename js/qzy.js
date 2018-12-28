@@ -58,8 +58,7 @@ function addroute(point) {
             height: 500,     // 信息窗口高度    
         }
         //添加信息窗口内容
-        var content1 = '<div class="point_content_title">' + route_title1 + '</div>' + '<br/>' +
-                '<div class="point_content_discribe">' + '路线简介: ' + route_discribe1 ;
+        var content1 =alert( route_title1 +'路线简介: ' + route_discribe1) ;
         // 创建信息窗口对象 		
         var infoWindow1 = new BMap.InfoWindow(content1, opts1);
         // 打开信息窗口   
