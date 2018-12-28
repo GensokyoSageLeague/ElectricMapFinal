@@ -93,3 +93,56 @@ map.addOverlay(lab5);
 map.addOverlay(lab6);
 map.addOverlay(lab7);
 map.addOverlay(lab8);
+
+//创建驾车实例
+var driving = new BMap.DrivingRoute(map, {
+    renderOptions: {
+        map: map,
+        autoViewport: true
+    }
+});
+
+//创建点对象
+var myp9 = new BMap.Point(118.986526, 32.126561);
+var myp10 = new BMap.Point(118.994913, 32.126274);
+var myp11= new BMap.Point(118.992538, 32.127719);
+var myp12 = new BMap.Point(118.993535, 32.126262);
+var myp13 = new BMap.Point(118.992498, 32.127648);
+
+
+//创建驾车搜索
+driving.search(myp9, myp13, { waypoints: [myp10, myp11,myp12] });//waypoints表示途经点
+
+
+//绘制折线
+driving.setSearchCompleteCallback(function () {
+    var pts2 = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+
+    var polyline2 = new BMap.Polyline([pts2],
+{ strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
+   );
+    map.addOverlay(polyline2);
+})
+var m9 = new BMap.Marker(myp9);         //创建4个marker
+var m10 = new BMap.Marker(myp10);
+var m11 = new BMap.Marker(myp11);
+var m12 = new BMap.Marker(myp12);
+var m13 = new BMap.Marker(myp13);
+
+map.addOverlay(m9);
+map.addOverlay(m10);
+map.addOverlay(m11);
+map.addOverlay(m12);
+map.addOverlay(m13);
+
+
+var lab9 = new BMap.Label("仙林湖公园", { position: myp9 });        //创建4个label
+var lab10 = new BMap.Label("诺丁牛排", { position: myp10 });
+var lab11 = new BMap.Label("汉拿山", { position: myp11 });
+var lab12 = new BMap.Label("星巴克", { position: myp12 });
+var lab13 = new BMap.Label("大玩家", { position: myp13 });
+map.addOverlay(lab9);
+map.addOverlay(lab10);
+map.addOverlay(lab11);
+map.addOverlay(lab12);
+map.addOverlay(lab13);
