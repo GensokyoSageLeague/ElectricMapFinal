@@ -14,11 +14,11 @@ var myp4 = new BMap.Point(118.820486, 32.117184);    //1104
 
 
 //创建驾车搜索
-driving.search1(myp1, myp4, { waypoints: [myp2, myp3] });//waypoints表示途经点
+driving1.search(myp1, myp4, { waypoints: [myp2, myp3] });//waypoints表示途经点
 
 
 //绘制折线
-driving.setSearch1CompleteCallback(function () {
+driving1.setSearchCompleteCallback(function () {
     var pts = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
 
     var polyline = new BMap.Polyline([pts],
