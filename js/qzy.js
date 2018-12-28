@@ -50,9 +50,9 @@ map.addOverlay(lab4);
 var route_title1 = new Array("江畔一日游");
 var route_discribe1 = new Array("紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，/n在城北的迈皋桥吃上一顿热火朝天的火锅，再到不远处的彩虹广场逛逛，美好的一天就这样结束了！");
 
-function addroute(poyline) {    
+function addroute(point) {    
     //添加图标点击事件
-    poyline.addEventListener("click", function () {
+    m1.addEventListener("click", function () {
         var opts1= {
             width: 250,     // 信息窗口宽度    
             height: 500,     // 信息窗口高度    
