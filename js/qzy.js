@@ -111,12 +111,12 @@ var myp13 = new BMap.Point(118.992498, 32.127648);
 
 
 //创建驾车搜索
-driving.search(myp9, myp13, { waypoints: [myp10, myp11,myp12] });//waypoints表示途经点
+driving2.search(myp9, myp13, { waypoints: [myp10, myp11,myp12] });//waypoints表示途经点
 
 
 //绘制折线
-driving.setSearchCompleteCallback(function () {
-    var pts2 = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+driving2.setSearchCompleteCallback(function () {
+    var pts2 = driving2.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
 
     var polyline2 = new BMap.Polyline([pts2],
 { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
@@ -163,12 +163,12 @@ var myp17 = new BMap.Point(118.943848, 32.103931);
 
 
 //创建驾车搜索
-driving.search(myp14, myp17, { waypoints: [myp15, myp16] });//waypoints表示途经点
+driving3.search(myp14, myp17, { waypoints: [myp15, myp16] });//waypoints表示途经点
 
 
 //绘制折线
-driving.setSearchCompleteCallback(function () {
-    var pts3 = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+driving3.setSearchCompleteCallback(function () {
+    var pts3 = driving3.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
 
     var polyline3 = new BMap.Polyline([pts3],
 { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
@@ -210,12 +210,12 @@ var myp21 = new BMap.Point(118.915590, 32.103414);
 
 
 //创建驾车搜索
-driving.search(myp18, myp21, { waypoints: [myp19, myp20] });//waypoints表示途经点
+driving4.search(myp18, myp21, { waypoints: [myp19, myp20] });//waypoints表示途经点
 
 
 //绘制折线
-driving.setSearchCompleteCallback(function () {
-    var pts4 = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+driving4.setSearchCompleteCallback(function () {
+    var pts4 = driving4.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
 
     var polyline4 = new BMap.Polyline([pts4],
 { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
@@ -258,12 +258,12 @@ var myp26 = new BMap.Point(118.929631, 32.105761);
 
 
 //创建驾车搜索
-driving.search(myp22, myp26, { waypoints: [myp23, myp24,myp25] });//waypoints表示途经点
+driving5.search(myp22, myp26, { waypoints: [myp23, myp24,myp25] });//waypoints表示途经点
 
 
 //绘制折线
-driving.setSearchCompleteCallback(function () {
-    var pts5 = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+driving5.setSearchCompleteCallback(function () {
+    var pts5 = driving5.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
 
     var polyline5 = new BMap.Polyline([pts5],
 { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
