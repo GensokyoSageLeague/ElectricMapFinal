@@ -47,7 +47,7 @@ map.addOverlay(lab3);
 map.addOverlay(lab4);
 
 //创建驾车实例
-var driving = new BMap.DrivingRoute(map, {
+var driving1 = new BMap.DrivingRoute(map, {
     renderOptions: {
         map: map,
         autoViewport: true
@@ -95,7 +95,7 @@ map.addOverlay(lab7);
 map.addOverlay(lab8);
 
 //创建驾车实例
-var driving = new BMap.DrivingRoute(map, {
+var driving2 = new BMap.DrivingRoute(map, {
     renderOptions: {
         map: map,
         autoViewport: true
