@@ -146,3 +146,150 @@ map.addOverlay(lab10);
 map.addOverlay(lab11);
 map.addOverlay(lab12);
 map.addOverlay(lab13);
+
+//创建驾车实例
+var driving3 = new BMap.DrivingRoute(map, {
+    renderOptions: {
+        map: map,
+        autoViewport: true
+    }
+});
+
+//创建点对象
+var myp14 = new BMap.Point(118.955669, 32.151090);
+var myp15 = new BMap.Point(118.923225, 32.100099);
+var myp16 = new BMap.Point(118.929337, 32.106705);
+var myp17 = new BMap.Point(118.943848, 32.103931);
+
+
+//创建驾车搜索
+driving.search(myp14, myp17, { waypoints: [myp15, myp16] });//waypoints表示途经点
+
+
+//绘制折线
+driving.setSearchCompleteCallback(function () {
+    var pts3 = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+
+    var polyline3 = new BMap.Polyline([pts3],
+{ strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
+   );
+    map.addOverlay(polyline3);
+})
+var m14 = new BMap.Marker(myp14);         //创建4个marker
+var m15 = new BMap.Marker(myp15);
+var m16 = new BMap.Marker(myp16);
+var m17 = new BMap.Marker(myp17);
+
+map.addOverlay(m14);
+map.addOverlay(m15);
+map.addOverlay(m16);
+map.addOverlay(m17);
+
+var lab14 = new BMap.Label("栖霞山风景名胜区", { position: myp14 });        //创建4个label
+var lab15 = new BMap.Label("金鹰湖滨天地", { position: myp15 });
+var lab16= new BMap.Label("左庭右院鲜牛肉火锅", { position: myp16 });
+var lab17 = new BMap.Label("南京师范大学仙林校区", { position: myp17 });
+map.addOverlay(lab14);
+map.addOverlay(lab15);
+map.addOverlay(lab16);
+map.addOverlay(lab17);
+
+//创建驾车实例
+var driving4 = new BMap.DrivingRoute(map, {
+    renderOptions: {
+        map: map,
+        autoViewport: true
+    }
+});
+
+//创建点对象
+var myp18 = new BMap.Point(118.943353, 32.112223);
+var myp19 = new BMap.Point(118.908978, 32.097554);
+var myp20 = new BMap.Point(118.915785, 32.103545);
+var myp21 = new BMap.Point(118.915590, 32.103414);
+
+
+//创建驾车搜索
+driving.search(myp18, myp21, { waypoints: [myp19, myp20] });//waypoints表示途经点
+
+
+//绘制折线
+driving.setSearchCompleteCallback(function () {
+    var pts4 = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+
+    var polyline4 = new BMap.Polyline([pts4],
+{ strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
+   );
+    map.addOverlay(polyline4);
+})
+var m18 = new BMap.Marker(myp18);         //创建4个marker
+var m19 = new BMap.Marker(myp19);
+var m20 = new BMap.Marker(myp20);
+var m21 = new BMap.Marker(myp21);
+
+map.addOverlay(m18);
+map.addOverlay(m19);
+map.addOverlay(m20);
+map.addOverlay(m21);
+
+var lab18 = new BMap.Label("羊山公园", { position: myp18 });        //创建4个label
+var lab19 = new BMap.Label("东城汇", { position: myp19 });
+var lab20 = new BMap.Label("唯爱主题KTV", { position: myp20 });
+var lab21 = new BMap.Label("乱世佳人就把", { position: myp21 });
+map.addOverlay(lab18);
+map.addOverlay(lab19);
+map.addOverlay(lab20);
+map.addOverlay(lab21);
+
+//创建驾车实例
+var driving5 = new BMap.DrivingRoute(map, {
+    renderOptions: {
+        map: map,
+        autoViewport: true
+    }
+});
+
+//创建点对象
+var myp22 = new BMap.Point(118.985903, 32.122109);
+var myp23 = new BMap.Point(118.992498, 32.127648);
+var myp24 = new BMap.Point(118.992538, 32.127719);
+var myp25 = new BMap.Point(118.928525, 32.107726);
+var myp26 = new BMap.Point(118.929631, 32.105761);
+
+
+//创建驾车搜索
+driving.search(myp22, myp26, { waypoints: [myp23, myp24,myp25] });//waypoints表示途经点
+
+
+//绘制折线
+driving.setSearchCompleteCallback(function () {
+    var pts5 = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+
+    var polyline5 = new BMap.Polyline([pts5],
+{ strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
+   );
+    map.addOverlay(polyline5);
+})
+var m22 = new BMap.Marker(myp22);         //创建4个marker
+var m23 = new BMap.Marker(myp23);
+var m24 = new BMap.Marker(myp24);
+var m25 = new BMap.Marker(myp25);
+var m26 = new BMap.Marker(myp26);
+
+map.addOverlay(m22);
+map.addOverlay(m23);
+map.addOverlay(m24);
+map.addOverlay(m25);
+map.addOverlay(m26);
+
+var lab22 = new BMap.Label("南京万达茂", { position: myp22 });        //创建4个label
+var lab23 = new BMap.Label("大玩家", { position: myp23 });
+var lab24 = new BMap.Label("汉拿山", { position: myp24 });
+var lab25 = new BMap.Label("青春飞扬网咖", { position: myp25 });
+var lab26 = new BMap.Label("卢米埃影院", { position: myp26 });
+
+map.addOverlay(lab22);
+map.addOverlay(lab23);
+map.addOverlay(lab24);
+map.addOverlay(lab25);
+map.addOverlay(lab26);
