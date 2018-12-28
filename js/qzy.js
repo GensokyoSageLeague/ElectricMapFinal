@@ -47,21 +47,21 @@ map.addOverlay(lab3);
 map.addOverlay(lab4);
 
 //创建鼠标点击事件与框框显示
-var route_title1 = new Array("江畔一日游");
-var route_discribe1 = new Array("紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，/n在城北的迈皋桥吃上一顿热火朝天的火锅，再到不远处的彩虹广场逛逛，美好的一天就这样结束了！");
+var route_title = "江畔一日游";
+var route_discribe = "紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，/n在城北的迈皋桥吃上一顿热火朝天的火锅，再到不远处的彩虹广场逛逛，美好的一天就这样结束了！";
 
 function addroute(point) {    
     //添加图标点击事件
     m1.addEventListener("click", function () {
-        var opts1= {
+        var opts= {
             width: 250,     // 信息窗口宽度    
             height: 500,     // 信息窗口高度    
         }
         //添加信息窗口内容
-        var content1 =alert( route_title1 +'路线简介: ' + route_discribe1) ;
+        var content =alert( route_title +'路线简介: ' + route_discribe) ;
         // 创建信息窗口对象 		
-        var infoWindow1 = new BMap.InfoWindow(content1, opts1);
+        var infoWindow = new BMap.InfoWindow(content, opts);
         // 打开信息窗口   
-        map.openInfoWindow(infoWindow1, map.getCenter());
+        map.openInfoWindow(infoWindow, map.getCenter());
     })
 }
