@@ -46,22 +46,50 @@ map.addOverlay(lab2);
 map.addOverlay(lab3);
 map.addOverlay(lab4);
 
-//创建鼠标点击事件与框框显示
-var route_title = "江畔一日游";
-var route_discribe = "紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，/n在城北的迈皋桥吃上一顿热火朝天的火锅，再到不远处的彩虹广场逛逛，美好的一天就这样结束了！";
+//创建驾车实例
+var driving = new BMap.DrivingRoute(map, {
+    renderOptions: {
+        map: map,
+        autoViewport: true
+    }
+});
 
-function addroute(point) {    
-    //添加图标点击事件
-    m1.addEventListener("click", function () {
-        var opts= {
-            width: 250,     // 信息窗口宽度    
-            height: 500,     // 信息窗口高度    
-        }
-        //添加信息窗口内容
-        var content =alert( route_title +'路线简介: ' + route_discribe) ;
-        // 创建信息窗口对象 		
-        var infoWindow = new BMap.InfoWindow(content, opts);
-        // 打开信息窗口   
-        map.openInfoWindow(infoWindow, map.getCenter());
-    })
-}
+//创建点对象
+var myp5 = new BMap.Point(118.895116, 32.050862);    
+var myp6 = new BMap.Point(118.901810, 32.056827);    
+var myp7 = new BMap.Point(118.902530, 32.058679);    
+var myp8 = new BMap.Point(118.901004, 32.056328);    
+
+
+//创建驾车搜索
+driving.search(myp5, myp8, { waypoints: [myp6, myp7] });//waypoints表示途经点
+
+
+//绘制折线
+driving.setSearchCompleteCallback(function () {
+    var pts1 = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+
+    var polyline1 = new BMap.Polyline([pts1],
+{ strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
+   );
+    map.addOverlay(polyline1);
+})
+var m5 = new BMap.Marker(myp5);         //创建4个marker
+var m6 = new BMap.Marker(myp6);
+var m7 = new BMap.Marker(myp7);
+var m8 = new BMap.Marker(myp8);
+
+map.addOverlay(m5);
+map.addOverlay(m6);
+map.addOverlay(m7);
+map.addOverlay(m8);
+
+
+var lab5 = new BMap.Label("花园城", { position: myp5 });        //创建4个label
+var lab6 = new BMap.Label("幸福蓝海国际影城", { position: myp6 });
+var lab7 = new BMap.Label("水沐足韵", { position: myp7 });
+var lab8 = new BMap.Label("晋家门", { position: myp8 });
+map.addOverlay(lab5);
+map.addOverlay(lab6);
+map.addOverlay(lab7);
+map.addOverlay(lab8);
