@@ -6,7 +6,6 @@ var driving = new BMap.DrivingRoute(map, {
     }
 });
 
-
 //创建点对象
 var myp1 = new BMap.Point(118.817139, 32.146839);    //1101
 var myp2 = new BMap.Point(118.795552, 32.127325);    //1102
