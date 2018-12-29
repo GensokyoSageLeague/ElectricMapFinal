@@ -22,7 +22,7 @@ function addroot1() {
                 var mm = routes[m].Nm;
                 map.removeOverlay(mm)
             }
-        }//删除经点、重终点
+        }//删除经点、终点
 
     });
     //创建点对象
@@ -49,7 +49,18 @@ function addroot1() {
                 }
                 //添加信息窗口内容
                 var content = '<div class="point_content_title">' + '江畔一日游\t评分：AAAA' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '攻略简介：紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，在城北的迈皋桥吃上一顿热火朝天的火锅，\n再到不远处的彩虹广场逛逛，美好的一天就这样结束了!' + '</div>' + '<br/>' +
-                '<div class="point_content_discribe">' + '路线：燕子矶公园-长江观音景区-重庆捞翻天火锅-晓庄国际彩虹广场' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '祝您本次出行一切顺利开心，欢迎您在行程结束后给本次线路规划评分！';
+                '<div class="point_content_discribe">' + '路线：燕子矶公园-长江观音景区-重庆捞翻天火锅-晓庄国际彩虹广场' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '祝您本次出行一切顺利开心，欢迎您在行程结束后给本次线路规划评分！' + '</div>' + '<br/>' + '<div id="wrapper">' +
+			'<input type="radio" id="star1" name="star" />' +
+			'<label for="star1"></label>' +
+			'<input type="radio" id="star2" name="star" />' +
+			'<label for="star2"></label>' +
+			'<input type="radio" id="star3" name="star" checked="checked"/>' +
+			'<label for="star3"></label>' +
+			'<input type="radio" id="star4" name="star" />' +
+			'<label for="star4"></label>' +
+			'<input type="radio" id="star5" name="star" />' +
+			'<label for="star5"></label>' +
+			'</div>';
                 // 创建信息窗口对象 		
                 var infoWindow = new BMap.InfoWindow(content, opts);
                 // 打开信息窗口   
