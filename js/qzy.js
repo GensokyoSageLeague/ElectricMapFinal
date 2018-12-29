@@ -1,9 +1,4 @@
 ﻿
-label:hover {
-    font-size: 50px;
-    color: #FFF;
-    text-shadow: 0 0 5px #b9c9d8;
-
 function labsetStyle(lab) {
     lab.setStyle({
         color: "blue", //字体颜色
