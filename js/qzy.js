@@ -476,7 +476,7 @@ map.addOverlay(lab51);
 
 //添加框和鼠标事件
 var marker = new BMap.Marker(myp1);
-map.addoverlay(marker);
+map.addOverlay(marker);
 var opts = {
     width: 200,     // 信息窗口宽度
     height: 100,     // 信息窗口高度
