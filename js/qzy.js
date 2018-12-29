@@ -676,10 +676,11 @@ function addroot9() {
     map.addOverlay(lab36);
     map.addOverlay(lab37);
     map.addOverlay(lab38);
-    map.addOverlay(lab39);
+    map.addOverlay(lab39); 
     map.addOverlay(lab40);
-
+     
 }
+ 
 
 addroot9();
 
