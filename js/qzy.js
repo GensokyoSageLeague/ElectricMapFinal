@@ -482,6 +482,6 @@ var opts = {
     
 }
 var infoWindow = new BMap.InfoWindow("紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，\n在城北的迈皋桥吃上一顿热火朝天的火锅，再到不远处的彩虹广场逛逛，美好的一天就这样结束了", opts);  // 创建信息窗口对象 
-marker.addEventListener("click", function () {
-    map.openInfoWindow(infoWindow,myp1); //开启信息窗口
+lab1.addEventListener("click", function () {
+    map.openInfoWindow(infoWindow,lab1); //开启信息窗口
 });
