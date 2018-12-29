@@ -4,12 +4,8 @@
         renderOptions: {
             map: map,
             autoViewport: true
-        },
-        onMarkersSet:function(routes) {
-            map.removeOverlay(routes[0].marker); //删除起点
-            map.removeOverlay(routes[1].marker);//删除终点
         }
-});
+    });
     //创建点对象
     var myp1 = new BMap.Point(118.817139, 32.146839);    //1101
     var myp2 = new BMap.Point(118.795552, 32.127325);    //1102
@@ -19,6 +15,10 @@
 
     //创建驾车搜索
     driving.search(myp1, myp4, { waypoints: [myp2, myp3] });//waypoints表示途经点
+    map.removeOverlay(myp1.marker);
+    map.removeOverlay(myp2.marker);
+    map.removeOverlay(myp3.marker);
+    map.removeOverlay(myp4.marker);
     //回调搜索的路线
     driving.setPolylinesSetCallback(function (lines) {
         addinformation(lines);
@@ -42,6 +42,7 @@
             })
             map.addOverlay(myline);
         }
+
 
 
         var myIcon = new BMap.Icon("img/icon/一站式路线图标/110/1101.png", new BMap.Size(100, 100));
