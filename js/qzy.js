@@ -4,8 +4,12 @@
         renderOptions: {
             map: map,
             autoViewport: true
+        },
+        onMarkersSet:function(routes) {
+            map.removeOverlay(routes[0].marker); //删除起点
+            map.removeOverlay(routes[1].marker);//删除终点
         }
-    });
+});
     //创建点对象
     var myp1 = new BMap.Point(118.817139, 32.146839);    //1101
     var myp2 = new BMap.Point(118.795552, 32.127325);    //1102
@@ -38,6 +42,8 @@
             })
             map.addOverlay(myline);
         }
+
+
         var myIcon = new BMap.Icon("img/icon/一站式路线图标/110/1101.png", new BMap.Size(100, 100));
         var marker = new BMap.Marker(myp1, { icon: myIcon });
         map.addOverlay(marker);
