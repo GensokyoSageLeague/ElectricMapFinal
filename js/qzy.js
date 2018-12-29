@@ -321,7 +321,7 @@ map.addOverlay(lab33);
 map.addOverlay(lab34);
 map.addOverlay(lab35);
 
-/创建驾车实例
+//创建驾车实例
 var driving7 = new BMap.DrivingRoute(map, {
     renderOptions: {
             map: map,
