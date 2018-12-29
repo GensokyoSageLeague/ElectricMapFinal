@@ -1,13 +1,120 @@
-﻿
-function labsetStyle(lab) {
-    lab.setStyle({
-        color: "blue", //字体颜色
-        fontSize: "16px",//字体大小 　　
-        backgroundColor: "0.05", //文本标注背景颜色　
-        border: "0",
-        fontWeight: "bold" //字体加粗});
-    });
+﻿<!DOCTYPE html>  
+<html>
+<head>  
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.6.0/css/font-awesome.min.css">
+<title>Hello, World</title>  
+<style type="text/css">  
+
+html{height:100%}  
+body{height:100%;margin:0px;padding:0px}  
+#container{height:100%}
+
+			.point_content_title {
+				font-size: 18px;
+				font-weight: bold;
+				color: #cc5522;
+				width: 200px; 
+				height: 20px; 
+				text-align:center
+			}
+			
+			.point_content_discribe {
+				font-size: 13px;
+				color: #333;
+			}
+			.point_content_name {
+				font-size: 13px;
+				color: #333;
+				width: 200px; 
+				height: 20px; 
+				text-align:center
+			}
+			.point_content_picture {
+				width: 200px; 
+				height: 100px; 
+				text-align:center;
+			}
+			
+			input {
+			  display: none;
+			}
+
+			label {
+			  cursor: pointer;
+			  font-size: 40px;
+			  color: yellow;
+			  display: block;
+			  width: 50px;
+			  height: 50px;
+			  line-height: 60px;
+			  text-align: center;
+			  float: left;
+			  -moz-transition: all 0.2s;
+			  -o-transition: all 0.2s;
+			  -webkit-transition: all 0.2s;
+			  transition: all 0.2s;
+			  text-shadow: 0 3px 3px #2b3c4e;
+			}
+			label:hover {
+			  font-size: 50px;
+			  color: #FFF;
+			  text-shadow: 0 0 5px #b9c9d8;
+			}
+			label:before {
+			  display: inline;
+			  width: auto;
+			  height: auto;
+			  line-height: normal;
+			  vertical-align: baseline;
+			  margin-top: 0;
+			  font-family: FontAwesome;
+			  font-weight: normal;
+			  font-style: normal;
+			  text-decoration: inherit;
+			  -webkit-font-smoothing: antialiased;
+			  content: "\f005";
+			}
+
+			input:checked + label ~ label:before {
+			  content: "\f006";
+			}
+
+			#wrapper {
+			  display: inline-block;
+			}
+			#wrapper:hover label:before {
+			  content: "\f005";
+			}
+			#wrapper:hover label:hover ~ label:before {
+			  content: "\f006";
+			}			
+</style>  
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=rYBz6feljjFxGiFG0czQ23zzgdehqeGS"></script>
+</head>  
+
+<body>  
+<div id="container" class="container"></div>
+<script type="text/javascript">
+
+function labsetStyle(lab)
+{
+lab.setStyle({ 
+　　color : "blue", //字体颜色
+　　fontSize : "16px",//字体大小 　　
+　　backgroundColor :"0.05", //文本标注背景颜色　
+　　border :"0", 　　
+　　fontWeight :"bold" //字体加粗});
+});
 }
+
+// 创建地图实例 
+var map = new BMap.Map("container");
+// 创建点坐标  
+var centre = new BMap.Point(118.92319, 32.098621);
+// 初始化地图，设置中心点坐标和地图级别
+map.centerAndZoom(centre, 13);
 
 function addroot1() {
     //创建驾车实例
@@ -1183,3 +1290,8 @@ function addroot12() {
 
 addroot12();
 
+
+
+</script>  
+</body>  
+</html>
