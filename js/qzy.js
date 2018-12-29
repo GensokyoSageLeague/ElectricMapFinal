@@ -15,13 +15,13 @@
 
     //创建驾车搜索
     driving.search(myp1, myp4, { waypoints: [myp2, myp3] });//waypoints表示途经点
-    map.removeOverlay(myp1.marker);
-    map.removeOverlay(myp2.marker);
-    map.removeOverlay(myp3.marker);
-    map.removeOverlay(myp4.marker);
     //回调搜索的路线
     driving.setPolylinesSetCallback(function (lines) {
         addinformation(lines);
+        map.removeOverlay(myp1.marker);
+        map.removeOverlay(myp2.marker);
+        map.removeOverlay(myp3.marker);
+        map.removeOverlay(myp4.marker);
     })
     //处理回调的路线
     function addinformation(lines) {
