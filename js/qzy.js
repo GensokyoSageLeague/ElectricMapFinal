@@ -43,15 +43,15 @@
         map.addOverlay(marker);
 
         var myIcon2 = new BMap.Icon("一站式路线图标/110/1102.png", new BMap.Size(100, 100));
-        var marker2 = new BMap.Marker(myp2, { icon: myIcon });
+        var marker2 = new BMap.Marker(myp2, { icon: myIcon2 });
         map.addOverlay(marker2);
 
         var myIcon3 = new BMap.Icon("一站式路线图标/110/1103.png", new BMap.Size(100, 100));
-        var marker3 = new BMap.Marker(myp3, { icon: myIcon });
+        var marker3 = new BMap.Marker(myp3, { icon: myIcon3 });
         map.addOverlay(marker3);
 
         var myIcon4 = new BMap.Icon("一站式路线图标/110/1104.png", new BMap.Size(100, 100));
-        var marker4 = new BMap.Marker(myp4, { icon: myIcon });
+        var marker4 = new BMap.Marker(myp4, { icon: myIcon4 });
         map.addOverlay(marker4);
         
     }
