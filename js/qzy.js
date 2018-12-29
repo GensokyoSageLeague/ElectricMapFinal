@@ -29,7 +29,7 @@
                     height: 550,     // 信息窗口高度    
                 }
                 //添加信息窗口内容
-                var content = '<div class="point_content_title">' + '江畔一日游\n' +'紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，在城北的迈皋桥吃上一顿热火朝天的火锅，\n再到不远处的彩虹广场逛逛，美好的一天就这样结束了!'</div>' + '<br/>';
+                var content = '<div class="point_content_title">' + '江畔一日游\n' +'紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，在城北的迈皋桥吃上一顿热火朝天的火锅，\n再到不远处的彩虹广场逛逛，美好的一天就这样结束了!'+'</div>' + '<br/>';
                 // 创建信息窗口对象 		
                 var infoWindow = new BMap.InfoWindow(content, opts);
                 // 打开信息窗口   
