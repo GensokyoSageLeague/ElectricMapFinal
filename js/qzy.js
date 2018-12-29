@@ -71,7 +71,7 @@ function addroot2() {
     //创建驾车搜索
     driving1.search(myp5, myp8, { waypoints: [myp6, myp7] });//waypoints表示途经点
     //回调搜索的路线
-    driving.setPolylinesSetCallback(function (lines) {
+    driving1.setPolylinesSetCallback(function (lines) {
         addinformation(lines);
     })
     //处理回调的路线
