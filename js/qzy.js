@@ -4,7 +4,7 @@
         renderOptions: {
             map: map,
             autoViewport: true
-        }
+        } 
     });
     //创建点对象
     var myp1 = new BMap.Point(118.817139, 32.146839);    //1101
