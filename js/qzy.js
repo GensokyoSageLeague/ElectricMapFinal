@@ -42,22 +42,29 @@
             anchor: new BMap.Size(10, 25),
             imageOffset: new BMap.Size(0, 0)
         });
-        addroot(myp1);
+        var marker = new BMap.Marker(myp1, { icon: myIcon });
+        map.addOverlay(marker);
+
         var myIcon2 = new BMap.Icon("一站式路线图标/110/1102.png", new BMap.Size(48, 48), {
             anchor: new BMap.Size(10, 25),
             imageOffset: new BMap.Size(0, 0)
         });
-        addroot(myp2);
+        var marker2 = new BMap.Marker(myp2, { icon: myIcon });
+        map.addOverlay(marker2);
+
         var myIcon3 = new BMap.Icon("一站式路线图标/110/1103.png", new BMap.Size(48, 48), {
             anchor: new BMap.Size(10, 25),
             imageOffset: new BMap.Size(0, 0)
         });
-        addroot(myp3);
+        var marker3 = new BMap.Marker(myp3, { icon: myIcon });
+        map.addOverlay(marker3);
+
         var myIcon4 = new BMap.Icon("一站式路线图标/110/1104.png", new BMap.Size(48, 48), {
             anchor: new BMap.Size(10, 25),
             imageOffset: new BMap.Size(0, 0)
         });
-        addroot(myp4);
+        var marker4 = new BMap.Marker(myp4, { icon: myIcon });
+        map.addOverlay(marker4);
         
     }
 
