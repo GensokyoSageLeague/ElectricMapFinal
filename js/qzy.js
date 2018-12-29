@@ -804,7 +804,7 @@ function addroot11() {
 
         var myIcon50 = new BMap.Icon("img/icon/一站式路线图标/420/4202.png", new BMap.Size(100, 100));
         var marker50 = new BMap.Marker(myp50, { icon: myIcon50 });
-        map.addOverlay(marker50);
+        map.addOverlay(marker50); 
 
         var myIcon51 = new BMap.Icon("img/icon/一站式路线图标/420/4203.png", new BMap.Size(100, 100));
         var marker51 = new BMap.Marker(myp51, { icon: myIcon51 });
