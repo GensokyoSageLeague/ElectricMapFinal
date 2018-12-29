@@ -4,7 +4,16 @@
         renderOptions: {
             map: map,
             autoViewport: true
+        },
+        onMarkersSet:function(routes) {
+            map.removeOverlay(routes[0].marker); //删除起点
+            map.removeOverlay(routes[routes.length - 1].marker);
+            for (var m = 1; m < routes.length - 1; m++) {
+                var mm = routes[m].Nm;
+                map.removeOverlay(mm)
+            }
         }
+
     });
     //创建点对象
     var myp1 = new BMap.Point(118.817139, 32.146839);    //1101
@@ -18,10 +27,6 @@
     //回调搜索的路线
     driving.setPolylinesSetCallback(function (lines) {
         addinformation(lines);
-        map.removeOverlay(myp1.marker);
-        map.removeOverlay(myp2.marker);
-        map.removeOverlay(myp3.marker);
-        map.removeOverlay(myp4.marker);
     })
     //处理回调的路线
     function addinformation(lines) {
