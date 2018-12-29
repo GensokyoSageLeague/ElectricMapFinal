@@ -308,7 +308,7 @@ driving7.setSearchCompleteCallback(function () {
     var polyline7 = new BMap.Polyline([pts7],
 { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
    );
-    map.addOverlay(polyline6);
+    map.addOverlay(polyline7);
 })
 
 var lab32 = new BMap.Label("八卦洲湿地公园", { position: myp32 });        //创建4个label
@@ -321,43 +321,6 @@ map.addOverlay(lab33);
 map.addOverlay(lab34);
 map.addOverlay(lab35);
 
-//创建驾车实例
-var driving7 = new BMap.DrivingRoute(map, {
-    renderOptions: {
-            map: map,
-                autoViewport: true
-                }
-                });
-
-//创建点对象
-var myp32 = new BMap.Point(118.955669, 32.151090);
-var myp33 = new BMap.Point(118.965238, 32.158332);
-var myp34 = new BMap.Point(118.965275, 32.157820);
-var myp35 = new BMap.Point(118.992538, 32.127719);
-
-//创建驾车搜索
-driving7.search(myp32, myp35, { waypoints: [myp33, myp34] });//waypoints表示途经点
-
-
-//绘制折线
-driving7.setSearchCompleteCallback(function () {
-    var pts7 = driving7.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
-
-    var polyline7 = new BMap.Polyline([pts7],
-    { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
-       );
-    map.addOverlay(polyline6);
-    })
-
-var lab32 = new BMap.Label("八卦洲湿地公园", { position: myp32 });        //创建4个label
-var lab33 = new BMap.Label("重庆老翻天火锅", { position: myp33 });
-var lab34 = new BMap.Label("优力锋KTV", { position: myp34 });
-var lab35 = new BMap.Label("玖古养生", { position: myp35 });
-
-map.addOverlay(lab32);
-map.addOverlay(lab33);
-map.addOverlay(lab34);
-map.addOverlay(lab35);
 
 //创建驾车实例
 var driving8 = new BMap.DrivingRoute(map, {
@@ -495,7 +458,7 @@ var driving11 = new BMap.DrivingRoute(map, {
 
 //绘制折线
 driving11.setSearchCompleteCallback(function () {
-    var pts11 = driving10.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+    var pts11 = driving11.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
 
     var polyline11 = new BMap.Polyline([pts11],
         { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 }
