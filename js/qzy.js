@@ -3,35 +3,7 @@ label:hover {
     font-size: 50px;
     color: #FFF;
     text-shadow: 0 0 5px #b9c9d8;
-}
-label:before {
-    display: inline;
-    width: auto;
-    height: auto;
-    line-height: normal;
-    vertical-align: baseline;
-    margin-top: 0;
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    text-decoration: inherit;
-    -webkit-font-smoothing: antialiased;
-    content: "\f005";
-}
 
-input:checked + label ~ label:before {
-    content: "\f006";
-}
-
-			#wrapper {
-    display: inline-block;
-			}
-			#wrapper:hover label:before {
-    content: "\f005";
-			}
-			#wrapper:hover label:hover ~ label:before {
-    content: "\f006";
-			}
 function labsetStyle(lab) {
     lab.setStyle({
         color: "blue", //字体颜色
