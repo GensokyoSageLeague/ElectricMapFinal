@@ -475,7 +475,7 @@ map.addOverlay(lab50);
 map.addOverlay(lab51);
 
 //添加框和鼠标事件
-var maker = new Bmap.Maker(myp1);
+var maker = new BMap.Maker(myp1);
 map.addoverlay(maker);
 var opts = {
     width: 200,     // 信息窗口宽度
