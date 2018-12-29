@@ -38,6 +38,27 @@
             })
             map.addOverlay(myline);
         }
+        var myIcon = new BMap.Icon("一站式路线图标/110/1101.png",new BMap.Size(48,48),{
+            anchor: new BMap.Size(10, 25),
+            imageOffset: new BMap.Size(0, 0)
+        });
+        addroot(myp1);
+        var myIcon2 = new BMap.Icon("一站式路线图标/110/1102.png", new BMap.Size(48, 48), {
+            anchor: new BMap.Size(10, 25),
+            imageOffset: new BMap.Size(0, 0)
+        });
+        addroot(myp2);
+        var myIcon3 = new BMap.Icon("一站式路线图标/110/1103.png", new BMap.Size(48, 48), {
+            anchor: new BMap.Size(10, 25),
+            imageOffset: new BMap.Size(0, 0)
+        });
+        addroot(myp3);
+        var myIcon4 = new BMap.Icon("一站式路线图标/110/1104.png", new BMap.Size(48, 48), {
+            anchor: new BMap.Size(10, 25),
+            imageOffset: new BMap.Size(0, 0)
+        });
+        addroot(myp4);
+        
     }
 
     var lab1 = new BMap.Label("燕子矶公园", { position: myp1 });        //创建4个label
