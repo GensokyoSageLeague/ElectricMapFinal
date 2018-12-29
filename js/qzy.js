@@ -475,7 +475,7 @@ map.addOverlay(lab50);
 map.addOverlay(lab51);
 
 //添加框和鼠标事件
-var point1 = new BMap.Point(118.817139, 32.146839);
+var point1 = new BMap.Point(118.817130, 32.146830);
 var marker1 = new BMap.Marker(point1);
 map.addOverlay(marker1);
 var opts1 = {
