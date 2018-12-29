@@ -475,15 +475,17 @@ map.addOverlay(lab50);
 map.addOverlay(lab51);
 
 //添加框和鼠标事件
-var marker = new BMap.Marker(myp1);
-map.addOverlay(marker);
-var opts = {
+var point1 = new BMap.Point(118.817139, 32.146839);
+var marker1 = new BMap.Marker(point1);
+map.addOverlay(marker1);
+var opts1 = {
     width: 200,     // 信息窗口宽度
     height: 100,     // 信息窗口高度
-    title: "江畔一日游", // 信息窗口标题
-    
+    title: "江畔一日游", // 信息窗口标题 
+    enableMessage: true,//设置允许信息窗发送短息
+   
 }
-var infoWindow = new BMap.InfoWindow("紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，\n在城北的迈皋桥吃上一顿热火朝天的火锅，再到不远处的彩虹广场逛逛，美好的一天就这样结束了", opts);  // 创建信息窗口对象 
-marker.addEventListener("click", function () {
-    map.openInfoWindow(infoWindow,marker); //开启信息窗口
+var infoWindow1 = new BMap.InfoWindow("紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，\n在城北的迈皋桥吃上一顿热火朝天的火锅，再到不远处的彩虹广场逛逛，美好的一天就这样结束了", opts1);  // 创建信息窗口对象 
+marker1.addEventListener("click", function () {
+    map.openInfoWindow(infoWindow1,point1); //开启信息窗口
 });
