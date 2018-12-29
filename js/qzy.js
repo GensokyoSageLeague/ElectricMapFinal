@@ -338,3 +338,345 @@ function addroot6() {
 }
 
 addroot6();
+
+function addroot7() {
+    //创建驾车实例
+    var driving6 = new BMap.DrivingRoute(map, {
+        renderOptions: {
+            map: map,
+            autoViewport: true
+        }
+    });
+
+    //创建点对象
+    var myp27 = new BMap.Point(118.955669, 32.151090);
+    var myp28 = new BMap.Point(118.965238, 32.158332);
+    var myp29 = new BMap.Point(118.965275, 32.157820);
+    var myp30 = new BMap.Point(118.992538, 32.127719);
+    var myp31 = new BMap.Point(118.985903, 32.122109);
+
+
+    //创建驾车搜索
+    driving6.search(myp27, myp31, { waypoints: [myp28, myp29, myp30] });//waypoints表示途经点
+    //回调搜索的路线
+    driving6.setPolylinesSetCallback(function (lines) {
+        addinformation(lines);
+    })
+    //处理回调的路线
+    function addinformation(lines) {
+        for (var line in lines) {
+            myline = lines[line].getPolyline();
+            myline.addEventListener("click", function () {
+                var opts = {
+                    width: 200,     // 信息窗口宽度    
+                    height: 550,     // 信息窗口高度    
+                }
+                //添加信息窗口内容
+                var content = '<div class="point_content_title">' + '心灵净化游\t评分：AAAA' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '攻略简介：在栖霞山看完美不胜收的红叶不如体验一下正宗素斋，下午再游玩栖霞古寺来一场净化心灵之旅。购物和吃肉的狂欢就偷偷留给夜晚~' + '</div>' + '<br/>' +
+                   '<div class="point_content_discribe">' + '路线：栖霞山-千佛寨素菜馆-栖霞古寺-汉拿山-南京万达茂' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '祝您本次出行一切顺利开心，欢迎您在行程结束后给本次线路规划评分！';
+                // 创建信息窗口对象 		
+                var infoWindow = new BMap.InfoWindow(content, opts);
+                // 打开信息窗口   
+                map.openInfoWindow(infoWindow, map.getCenter());
+            })
+            map.addOverlay(myline);
+        }
+    }
+
+    var lab27 = new BMap.Label("栖霞山风景名胜区", { position: myp27 });        //创建4个label
+    var lab28 = new BMap.Label("千佛斋素菜馆", { position: myp28 });
+    var lab29 = new BMap.Label("栖霞古寺", { position: myp29 });
+    var lab30 = new BMap.Label("汉拿山", { position: myp30 });
+    var lab31 = new BMap.Label("南京万达茂", { position: myp31 });
+
+    map.addOverlay(lab27);
+    map.addOverlay(lab28);
+    map.addOverlay(lab29);
+    map.addOverlay(lab30);
+    map.addOverlay(lab31);
+
+}
+
+addroot7();
+
+function addroot8() {
+    //创建驾车实例
+    var driving7 = new BMap.DrivingRoute(map, {
+        renderOptions: {
+            map: map,
+            autoViewport: true
+        }
+    });
+
+    //创建点对象
+    var myp32 = new BMap.Point(118.955669, 32.151090);
+    var myp33 = new BMap.Point(118.965238, 32.158332);
+    var myp34 = new BMap.Point(118.965275, 32.157820);
+    var myp35 = new BMap.Point(118.992538, 32.127719);
+
+    //创建驾车搜索
+    driving7.search(myp32, myp35, { waypoints: [myp33, myp34] });//waypoints表示途经点
+
+    //回调搜索的路线
+    driving7.setPolylinesSetCallback(function (lines) {
+        addinformation(lines);
+    })
+    //处理回调的路线
+    function addinformation(lines) {
+        for (var line in lines) {
+            myline = lines[line].getPolyline();
+            myline.addEventListener("click", function () {
+                var opts = {
+                    width: 200,     // 信息窗口宽度    
+                    height: 550,     // 信息窗口高度    
+                }
+                //添加信息窗口内容
+                var content = '<div class="point_content_title">' + '城乡养生游\t评分：AAA' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '攻略简介：美好的早晨就在湿地公园享受一下清新自然的味道吧。接下来回到闹市，火锅K歌大保健一条龙，让我们红尘作伴活得潇潇洒洒。' + '</div>' + '<br/>' +
+                   '<div class="point_content_discribe">' + '路线：八卦洲湿地公园-重庆捞翻天火锅-优力锋KTV-玖古养生' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '祝您本次出行一切顺利开心，欢迎您在行程结束后给本次线路规划评分！';
+                // 创建信息窗口对象 		
+                var infoWindow = new BMap.InfoWindow(content, opts);
+                // 打开信息窗口   
+                map.openInfoWindow(infoWindow, map.getCenter());
+            })
+            map.addOverlay(myline);
+        }
+    }
+
+    var lab32 = new BMap.Label("八卦洲湿地公园", { position: myp32 });        //创建4个label
+    var lab33 = new BMap.Label("重庆老翻天火锅", { position: myp33 });
+    var lab34 = new BMap.Label("优力锋KTV", { position: myp34 });
+    var lab35 = new BMap.Label("玖古养生", { position: myp35 });
+
+    map.addOverlay(lab32);
+    map.addOverlay(lab33);
+    map.addOverlay(lab34);
+    map.addOverlay(lab35);
+
+}
+
+addroot8();
+
+function addroot9() {
+    //创建驾车实例
+    var driving8 = new BMap.DrivingRoute(map, {
+        renderOptions: {
+            map: map,
+            autoViewport: true
+        }
+    });
+
+    //创建点对象
+    var myp36 = new BMap.Point(118.929631, 32.105761);
+    var myp37 = new BMap.Point(118.923225, 32.100099);
+    var myp38 = new BMap.Point(118.933079, 32.107585);
+    var myp39 = new BMap.Point(118.923547, 32.098900);
+    var myp40 = new BMap.Point(118.915590, 32.103414);
+
+    //创建驾车搜索
+    driving8.search(myp36, myp40, { waypoints: [myp37, myp38, myp39] });//waypoints表示途经
+    //回调搜索的路线
+    driving8.setPolylinesSetCallback(function (lines) {
+        addinformation(lines);
+    })
+    //处理回调的路线
+    function addinformation(lines) {
+        for (var line in lines) {
+            myline = lines[line].getPolyline();
+            myline.addEventListener("click", function () {
+                var opts = {
+                    width: 200,     // 信息窗口宽度    
+                    height: 550,     // 信息窗口高度    
+                }
+                //添加信息窗口内容
+                var content = '<div class="point_content_title">' + '单身贵族游\t评分：AAAAA' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '攻略简介：一个人的一天也要精彩又尽兴。看完电影买买买，再吃顿火锅好好犒劳自己。下午变身神探加入推理俱乐部，夜晚以一群人的狂欢收尾。' + '</div>' + '<br/>' +
+                   '<div class="point_content_discribe">' + '路线：卢米埃影院-金鹰湖滨天地-川西集市-九霄推理俱乐部-乱世佳人酒吧' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '祝您本次出行一切顺利开心，欢迎您在行程结束后给本次线路规划评分！';
+                // 创建信息窗口对象 		
+                var infoWindow = new BMap.InfoWindow(content, opts);
+                // 打开信息窗口   
+                map.openInfoWindow(infoWindow, map.getCenter());
+            })
+            map.addOverlay(myline);
+        }
+    }
+
+    var lab36 = new BMap.Label("卢米埃影院", { position: myp36 });        //创建4个label
+    var lab37 = new BMap.Label("金鹰湖滨天地", { position: myp37 });
+    var lab38 = new BMap.Label("川西集市", { position: myp38 });
+    var lab39 = new BMap.Label("九霄推理俱乐部", { position: myp39 });
+    var lab40 = new BMap.Label("乱世佳人酒吧", { position: myp40 });
+
+    map.addOverlay(lab36);
+    map.addOverlay(lab37);
+    map.addOverlay(lab38);
+    map.addOverlay(lab39);
+    map.addOverlay(lab40);
+
+}
+
+addroot9();
+
+function addroot10() {
+    //创建驾车实例
+    var driving9 = new BMap.DrivingRoute(map, {
+        renderOptions: {
+            map: map,
+            autoViewport: true
+        }
+    });
+
+    //创建点对象
+    var myp41 = new BMap.Point(118.986526, 32.126561);
+    var myp42 = new BMap.Point(118.929631, 32.105761);
+    var myp43 = new BMap.Point(118.929546, 32.106421);
+    var myp44 = new BMap.Point(118.923225, 32.100099);
+
+    //创建驾车搜索
+    driving9.search(myp41, myp44, { waypoints: [myp42, myp43] });//waypoints表示途经点
+    //回调搜索的路线
+    driving9.setPolylinesSetCallback(function (lines) {
+        addinformation(lines);
+    })
+    //处理回调的路线
+    function addinformation(lines) {
+        for (var line in lines) {
+            myline = lines[line].getPolyline();
+            myline.addEventListener("click", function () {
+                var opts = {
+                    width: 200,     // 信息窗口宽度    
+                    height: 550,     // 信息窗口高度    
+                }
+                //添加信息窗口内容
+                var content = '<div class="point_content_title">' + '情侣虐狗游\t评分：A' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '攻略简介：和亲爱的TA要怎么度过闲暇时光呢？不如和TA一起到仙林湖划划船，到影院看一部甜蜜爱情片，最后再一起饱餐一顿。' + '</div>' + '<br/>' +
+                   '<div class="point_content_discribe">' + '路线：仙林湖公园-卢米埃影院-咸亨酒店-金鹰湖滨天地' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '祝您本次出行一切顺利开心，欢迎您在行程结束后给本次线路规划评分！';
+                // 创建信息窗口对象 		
+                var infoWindow = new BMap.InfoWindow(content, opts);
+                // 打开信息窗口   
+                map.openInfoWindow(infoWindow, map.getCenter());
+            })
+            map.addOverlay(myline);
+        }
+    }
+
+    var lab41 = new BMap.Label("仙林湖公园", { position: myp41 });        //创建4个label
+    var lab42 = new BMap.Label("卢米埃影院", { position: myp42 });
+    var lab43 = new BMap.Label("咸亨酒店", { position: myp43 });
+    var lab44 = new BMap.Label("金鹰湖滨天地", { position: myp44 });
+
+    map.addOverlay(lab41);
+    map.addOverlay(lab42);
+    map.addOverlay(lab43);
+    map.addOverlay(lab44);
+
+}
+
+addroot10();
+
+function addroot11() {
+    //创建驾车实例
+    var driving11 = new BMap.DrivingRoute(map, {
+        renderOptions: {
+            map: map,
+            autoViewport: true
+        }
+    });
+
+    //创建点对象
+    var myp49 = new BMap.Point(118.960047, 32.151708);
+    var myp50 = new BMap.Point(118.964317, 32.155155);
+    var myp51 = new BMap.Point(118.955669, 32.151090);
+
+    //创建驾车搜索
+    driving11.search(myp49, myp51, { waypoints: [myp50] });//waypoints表示途经点
+    //回调搜索的路线
+    driving11.setPolylinesSetCallback(function (lines) {
+        addinformation(lines);
+    })
+    //处理回调的路线
+    function addinformation(lines) {
+        for (var line in lines) {
+            myline = lines[line].getPolyline();
+            myline.addEventListener("click", function () {
+                var opts = {
+                    width: 200,     // 信息窗口宽度    
+                    height: 550,     // 信息窗口高度    
+                }
+                //添加信息窗口内容
+                var content = '<div class="point_content_title">' + '好友欢脱游\t评分：AAAA' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '攻略简介：和好友的欢聚时光，就应该是吃吃喝喝，而不用考虑其它的事。' + '</div>' + '<br/>' +
+                   '<div class="point_content_discribe">' + '路线：八卦洲湿地公园-陌上花渡-柠檬鱼' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '祝您本次出行一切顺利开心，欢迎您在行程结束后给本次线路规划评分！';
+                // 创建信息窗口对象 		
+                var infoWindow = new BMap.InfoWindow(content, opts);
+                // 打开信息窗口   
+                map.openInfoWindow(infoWindow, map.getCenter());
+            })
+            map.addOverlay(myline);
+        }
+    }
+
+    var lab49 = new BMap.Label("八卦洲湿地公园", { position: myp49 });        //创建4个label
+    var lab50 = new BMap.Label("陌上花渡", { position: myp50 });
+    var lab51 = new BMap.Label("柠檬鱼", { position: myp51 });
+
+    map.addOverlay(lab49);
+    map.addOverlay(lab50);
+    map.addOverlay(lab51);
+
+}
+
+addroot11();
+
+function addroot12() {
+    //创建驾车实例
+    var driving10 = new BMap.DrivingRoute(map, {
+        renderOptions: {
+            map: map,
+            autoViewport: true
+        }
+    });
+
+    //创建点对象
+    var myp45 = new BMap.Point(118.960047, 32.151708);
+    var myp46 = new BMap.Point(118.964317, 32.155155);
+    var myp47 = new BMap.Point(118.955669, 32.151090);
+    var myp48 = new BMap.Point(118.965238, 32.158332);
+
+    //创建驾车搜索
+    driving10.search(myp45, myp48, { waypoints: [myp46, myp47] });//waypoints表示途经点
+    //回调搜索的路线
+    driving10.setPolylinesSetCallback(function (lines) {
+        addinformation(lines);
+    })
+    //处理回调的路线
+    function addinformation(lines) {
+        for (var line in lines) {
+            myline = lines[line].getPolyline();
+            myline.addEventListener("click", function () {
+                var opts = {
+                    width: 200,     // 信息窗口宽度    
+                    height: 550,     // 信息窗口高度    
+                }
+                //添加信息窗口内容
+                var content = '<div class="point_content_title">' + '文艺赏景游\t评分：AAAA' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '攻略简介：这是个赏秋景最美的地方，有红枫也有情怀。' + '</div>' + '<br/>' +
+                   '<div class="point_content_discribe">' + '路线：千佛岩-天开岩-栖霞山-千佛寨素菜馆' + '</div>' + '<br/>' + '<div class="point_content_discribe">' + '祝您本次出行一切顺利开心，欢迎您在行程结束后给本次线路规划评分！';
+                // 创建信息窗口对象 		
+                var infoWindow = new BMap.InfoWindow(content, opts);
+                // 打开信息窗口   
+                map.openInfoWindow(infoWindow, map.getCenter());
+            })
+            map.addOverlay(myline);
+        }
+    }
+
+    var lab45 = new BMap.Label("千佛岩", { position: myp45 });        //创建4个label
+    var lab46 = new BMap.Label("天开岩", { position: myp46 });
+    var lab47 = new BMap.Label("栖霞山风景名胜区", { position: myp47 });
+    var lab48 = new BMap.Label("千佛斋素菜馆", { position: myp48 });
+
+    map.addOverlay(lab45);
+    map.addOverlay(lab46);
+    map.addOverlay(lab47);
+    map.addOverlay(lab48);
+
+}
+
+addroot12();
+
