@@ -473,3 +473,15 @@ var lab51 = new BMap.Label("柠檬鱼", { position: myp51 });
 map.addOverlay(lab49);
 map.addOverlay(lab50);
 map.addOverlay(lab51);
+
+//添加框和鼠标事件
+var opts = {
+    width: 200,     // 信息窗口宽度
+    height: 100,     // 信息窗口高度
+    title: "江畔一日游", // 信息窗口标题
+    
+}
+var infoWindow = new BMap.InfoWindow("紧邻长江，将长江边上的燕子矶风光和长江观音风光一览无余之后，\n在城北的迈皋桥吃上一顿热火朝天的火锅，再到不远处的彩虹广场逛逛，美好的一天就这样结束了", opts);  // 创建信息窗口对象 
+marker.addEventListener("click", function () {
+    map.openInfoWindow(infoWindow,myp1); //开启信息窗口
+});
