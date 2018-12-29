@@ -1,4 +1,14 @@
-﻿function addroot1() {
+﻿function labsetStyle(lab) {
+    lab.setStyle({
+        color: "blue", //字体颜色
+        fontSize: "16px",//字体大小 　　
+        backgroundColor: "0.05", //文本标注背景颜色　
+        border: "0",
+        fontWeight: "bold" //字体加粗});
+    });
+}
+
+function addroot1() {
     //创建驾车实例
     var driving = new BMap.DrivingRoute(map, {
         renderOptions: {
@@ -12,7 +22,7 @@
                 var mm = routes[m].Nm;
                 map.removeOverlay(mm)
             }
-        }
+        }//删除经点、重终点
 
     });
     //创建点对象
@@ -72,6 +82,10 @@
     var lab2 = new BMap.Label("长江观音景区", { position: myp2 });
     var lab3 = new BMap.Label("重庆捞翻天火锅", { position: myp3 });
     var lab4 = new BMap.Label("晓庄国际彩虹广场", { position: myp4 });
+    labsetStyle(lab1);
+    labsetStyle(lab2);
+    labsetStyle(lab3);
+    labsetStyle(lab4);
     map.addOverlay(lab1);
     map.addOverlay(lab2);
     map.addOverlay(lab3);
