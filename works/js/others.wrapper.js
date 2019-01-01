@@ -9,6 +9,8 @@ var foodpoint_foodname1 = new Array("布朗尼", "三拼卷", "抹茶冰淇淋",
 var foodpoint_foodname2 = new Array("红丝绒", "咸奶油裸蛋糕", "抹茶千层", "招牌吐司", "姜汁撞奶", "热气牛肉", "捞派滑牛肉", "蟹籽鲜虾滑", "牛酥", "茴香小油条", "牛肥瘦", "烤全牛", "烤五花肉", "日式照烧鸡排饭", "秘制梅肉", "锅包肉", "冷拌一禾面", "荔浦香芋豆花", "碎肉手抓饭", "爆蛋鸡柳", "干菜焖肉", "青椒紫苏味牛蛙", "椒盐鸭架", "建水汽锅鸡", "烤羊排", "茶走", "豆乳盒子", "虾滑", "红糖糍粑", "雪花肥牛", "大虾", "蟹棒", "果彩缤纷卷", "石锅拌饭", "海鲜葱饼", "美式沙朗牛排", "盐焦鸡肉沙拉", "至尊奶酪玉米片", "海鲜大咖", "宫保鸡丁", "糖醋里脊", "蒜泥龙虾", "咸蛋黄龙虾", "鸽子汤", "皮蛋瘦肉粥", "星冰乐", "素面", "柠檬鱼");
 var foodpoint_foodname3 = new Array("荔浦芋头", "芒果西米流心慕斯", "抹茶提拉米苏", "皇冠芝士吐司", "椰丝牛奶砖", "爱跳舞的大鲍鱼", "无刺巴沙鱼", "鲜牛杂鸳鸯锅", "鲜切肥牛", "野生黄辣丁", "碳烤鸡子蚝", "烤黑牛雪花肉", "烤猪排", "日式豚骨拉面", "芝士牛肉石锅拌饭", "鸡蛋卷", "虾仁荞麦面", "陈皮红豆豆花", "羊排", "黄金豆豆", "绍兴全家福", "麻辣味牛蛙", "绿茶佛饼", "版纳香茅草烤鱼", "羊肉串", "鸡蛋仔", "雪媚娘", "鸭肠", "虾滑", "麻辣牛肉", "牛排", "鲍鱼", "综合刺身拼盘", "芝士年糕", "烤五花肉", "黑椒牛排", "蔬菜沙拉", "香烤青柠虾", "石锅番茄牛腩", "鱼香肉丝", "蓝莓山药", "麻辣龙虾", "红烧龙虾", "鹿儿岛虾球", "豉汁凤爪", "甜点", "素鸡", "酸菜鱼");
 
+var myIcon;
+
 function addfood(point, i) {
 	var mk = new BMap.Marker(point, { icon: myIcon });
 	map.addOverlay(mk);
@@ -40,74 +42,76 @@ function addfood(point, i) {
 	})
 }
 
-for (var i = 0; i < foodpoint_x.length; i++) {
-	if ((i >= 0 && i < 5) || i == 26 || i == 27 || i == 46) {
-		var myIcon = new BMap.Icon("img/icon/面包甜点.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
-		addfood(point, i);
-	}
-	else if ((i >= 5 && i < 10) || i == 28 || i == 29 || i == 30 || i == 48) {
-		var myIcon = new BMap.Icon("img/icon/火锅.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
-		addfood(point, i);
-	}
-	else if ((i >= 10 && i < 15) || i == 35 || i == 42 || i == 43) {
-		var myIcon = new BMap.Icon("img/icon/烧烤.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
-		addfood(point, i);
-	}
-	else if (i >= 15 && i < 20) {
-		var myIcon = new BMap.Icon("img/icon/快餐.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
-		addfood(point, i);
-	}
-	else if ((i >= 20 && i < 25) || i == 39 || i == 40 || i == 41 || i == 44 || i == 45) {
-		var myIcon = new BMap.Icon("img/icon/地方菜.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
-		addfood(point, i);
-	}
-	else if (i == 31 || i == 25) {
-		var myIcon = new BMap.Icon("img/icon/地方菜.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
-		addfood(point, i);
-	}
+function addFood() {
+	for (var i = 0; i < foodpoint_x.length; i++) {
+		if ((i >= 0 && i < 5) || i == 26 || i == 27 || i == 46) {
+			myIcon = new BMap.Icon("img/icon/面包甜点.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
+			addfood(point, i);
+		}
+		else if ((i >= 5 && i < 10) || i == 28 || i == 29 || i == 30 || i == 48) {
+			myIcon = new BMap.Icon("img/icon/火锅.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
+			addfood(point, i);
+		}
+		else if ((i >= 10 && i < 15) || i == 35 || i == 42 || i == 43) {
+			myIcon = new BMap.Icon("img/icon/烧烤.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
+			addfood(point, i);
+		}
+		else if (i >= 15 && i < 20) {
+			myIcon = new BMap.Icon("img/icon/快餐.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
+			addfood(point, i);
+		}
+		else if ((i >= 20 && i < 25) || i == 39 || i == 40 || i == 41 || i == 44 || i == 45) {
+			myIcon = new BMap.Icon("img/icon/地方菜.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
+			addfood(point, i);
+		}
+		else if (i == 31 || i == 25) {
+			myIcon = new BMap.Icon("img/icon/地方菜.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
+			addfood(point, i);
+		}
 
-	else if (i == 47) {
-		var myIcon = new BMap.Icon("img/icon/素食.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
-		addfood(point, i);
-	}
+		else if (i == 47) {
+			myIcon = new BMap.Icon("img/icon/素食.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
+			addfood(point, i);
+		}
 
-	else {
-		var myIcon = new BMap.Icon("img/icon/外国菜.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
-		addfood(point, i);
+		else {
+			myIcon = new BMap.Icon("img/icon/外国菜.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(foodpoint_x[i], foodpoint_y[i]);
+			addfood(point, i);
+		}
 	}
-};
+}
 
 //========================================================休闲娱乐类标注点击事件及消息窗口=======================================================
 var playpoint_x = new Array("118.913797", "118.929631", "118.933773", "118.90181", "118.923621", "118.921064", "118.915785", "118.901634", "118.818982", "118.87442", "118.946532", "118.923547", "118.929919", "118.90253", "118.908254", "118.917626", "118.91732", "118.826786", "118.91559", "118.919988", "118.928525", "118.917938", "118.836935", "118.923594", "118.937043", "118.992498");
@@ -140,80 +144,82 @@ function addplay(point, i) {
 	})
 }
 
-for (var i = 0; i < playpoint_x.length; i++) {
-	if (i >= 0 && i < 5) {
-		var myIcon = new BMap.Icon("img/icon/电影院.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
-		addplay(point, i);
+function addPlay() {
+	for (var i = 0; i < playpoint_x.length; i++) {
+		if (i >= 0 && i < 5) {
+			myIcon = new BMap.Icon("img/icon/电影院.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
+			addplay(point, i);
+		}
+		else if (i >= 5 && i < 10) {
+			myIcon = new BMap.Icon("img/icon/KTV.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
+			addplay(point, i);
+		}
+		else if (i == 10) {
+			myIcon = new BMap.Icon("img/icon/真人CS.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
+			addplay(point, i);
+		}
+		else if (i == 11 || i == 12) {
+			myIcon = new BMap.Icon("img/icon/推理类.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
+			addplay(point, i);
+		}
+		else if (i >= 13 && i < 18) {
+			myIcon = new BMap.Icon("img/icon/养生类.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
+			addplay(point, i);
+		}
+		else if (i >= 18 && i < 20) {
+			myIcon = new BMap.Icon("img/icon/酒吧.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
+			addplay(point, i);
+		}
+		else if (i >= 20 && i < 23) {
+			myIcon = new BMap.Icon("img/icon/网吧.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
+			addplay(point, i);
+		}
+		else if (i == 24) {
+			myIcon = new BMap.Icon("img/icon/茶吧.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
+			addplay(point, i);
+		}
+		else {
+			myIcon = new BMap.Icon("img/icon/游戏城.png", new BMap.Size(48, 48), {
+				anchor: new BMap.Size(10, 25),
+				imageOffset: new BMap.Size(0, 0)
+			});
+			var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
+			addplay(point, i);
+		}
 	}
-	else if (i >= 5 && i < 10) {
-		var myIcon = new BMap.Icon("img/icon/KTV.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
-		addplay(point, i);
-	}
-	else if (i == 10) {
-		var myIcon = new BMap.Icon("img/icon/真人CS.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
-		addplay(point, i);
-	}
-	else if (i == 11 || i == 12) {
-		var myIcon = new BMap.Icon("img/icon/推理类.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
-		addplay(point, i);
-	}
-	else if (i >= 13 && i < 18) {
-		var myIcon = new BMap.Icon("img/icon/养生类.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
-		addplay(point, i);
-	}
-	else if (i >= 18 && i < 20) {
-		var myIcon = new BMap.Icon("img/icon/酒吧.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
-		addplay(point, i);
-	}
-	else if (i >= 20 && i < 23) {
-		var myIcon = new BMap.Icon("img/icon/网吧.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
-		addplay(point, i);
-	}
-	else if (i == 24) {
-		var myIcon = new BMap.Icon("img/icon/茶吧.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
-		addplay(point, i);
-	}
-	else {
-		var myIcon = new BMap.Icon("img/icon/游戏城.png", new BMap.Size(48, 48), {
-			anchor: new BMap.Size(10, 25),
-			imageOffset: new BMap.Size(0, 0)
-		});
-		var point = new BMap.Point(playpoint_x[i], playpoint_y[i]);
-		addplay(point, i);
-	}
-};
+}
 
 //========================================================购物类标注点击事件及消息窗口=======================================================
 var shoppoint_x = new Array("118.923225", "118.908978", "118.820486", "118.895116", "118.922238", "118.985903");
@@ -246,15 +252,17 @@ function addshop(point, i) {
 	})
 }
 
-for (var i = 0; i < shoppoint_x.length; i++) {
-	var myIcon = new BMap.Icon("img/icon/商场.png", new BMap.Size(48, 48), {
-		anchor: new BMap.Size(10, 25),
-		imageOffset: new BMap.Size(0, 0)
-	});
-	var point = new BMap.Point(shoppoint_x[i], shoppoint_y[i]);
-	addshop(point, i);
+function addShop() {
+	for (var i = 0; i < shoppoint_x.length; i++) {
+		myIcon = new BMap.Icon("img/icon/商场.png", new BMap.Size(48, 48), {
+			anchor: new BMap.Size(10, 25),
+			imageOffset: new BMap.Size(0, 0)
+		});
+		var point = new BMap.Point(shoppoint_x[i], shoppoint_y[i]);
+		addshop(point, i);
 
-};
+	}
+}
 
 //========================================================景点类标注点击事件及消息窗口=======================================================
 var scenepoint_x = new Array("118.955669", "118.964317", "118.960047", "118.817139", "118.822117", "118.795552", "118.813834", "118.809886", "118.943353", "118.986526", "118.846836", "118.803277", "118.965275");
@@ -289,15 +297,17 @@ function addscene(point, i) {
 	})
 }
 
-for (var i = 0; i < scenepoint_x.length; i++) {
-	var myIcon = new BMap.Icon("img/icon/景区.png", new BMap.Size(48, 48), {
-		anchor: new BMap.Size(10, 25),
-		imageOffset: new BMap.Size(0, 0)
-	});
-	var point = new BMap.Point(scenepoint_x[i], scenepoint_y[i]);
-	addscene(point, i);
+function addScene() {
+	for (var i = 0; i < scenepoint_x.length; i++) {
+		myIcon = new BMap.Icon("img/icon/景区.png", new BMap.Size(48, 48), {
+			anchor: new BMap.Size(10, 25),
+			imageOffset: new BMap.Size(0, 0)
+		});
+		var point = new BMap.Point(scenepoint_x[i], scenepoint_y[i]);
+		addscene(point, i);
+	}
+}
 
-};
 //========================================================一站式线路类类标注点击事件及消息窗口=======================================================
 function labsetStyle(lab) {
 	lab.setStyle({
@@ -371,19 +381,19 @@ function addroot1() {
 
 
 
-		var myIcon = new BMap.Icon("img/icon/一站式路线图标/110/1101.png", new BMap.Size(100, 100));
+		myIcon = new BMap.Icon("img/icon/一站式路线图标/110/1101.png", new BMap.Size(100, 100));
 		var marker = new BMap.Marker(myp1, { icon: myIcon });
 		map.addOverlay(marker);
 
-		var myIcon2 = new BMap.Icon("img/icon/一站式路线图标/110/1102.png", new BMap.Size(100, 100));
+		myIcon2 = new BMap.Icon("img/icon/一站式路线图标/110/1102.png", new BMap.Size(100, 100));
 		var marker2 = new BMap.Marker(myp2, { icon: myIcon2 });
 		map.addOverlay(marker2);
 
-		var myIcon3 = new BMap.Icon("img/icon/一站式路线图标/110/1103.png", new BMap.Size(100, 100));
+		myIcon3 = new BMap.Icon("img/icon/一站式路线图标/110/1103.png", new BMap.Size(100, 100));
 		var marker3 = new BMap.Marker(myp3, { icon: myIcon3 });
 		map.addOverlay(marker3);
 
-		var myIcon4 = new BMap.Icon("img/icon/一站式路线图标/110/1104.png", new BMap.Size(100, 100));
+		myIcon4 = new BMap.Icon("img/icon/一站式路线图标/110/1104.png", new BMap.Size(100, 100));
 		var marker4 = new BMap.Marker(myp4, { icon: myIcon4 });
 		map.addOverlay(marker4);
 
@@ -402,8 +412,6 @@ function addroot1() {
 	map.addOverlay(lab3);
 	map.addOverlay(lab4);
 }
-
-addroot1();
 
 function addroot2() {
 	//创建驾车实例
@@ -466,19 +474,19 @@ function addroot2() {
 			map.addOverlay(myline);
 		}
 
-		var myIcon5 = new BMap.Icon("img/icon/一站式路线图标/120/1201.png", new BMap.Size(100, 100));
+		myIcon5 = new BMap.Icon("img/icon/一站式路线图标/120/1201.png", new BMap.Size(100, 100));
 		var marker5 = new BMap.Marker(myp5, { icon: myIcon5 });
 		map.addOverlay(marker5);
 
-		var myIcon6 = new BMap.Icon("img/icon/一站式路线图标/120/1202.png", new BMap.Size(100, 100));
+		myIcon6 = new BMap.Icon("img/icon/一站式路线图标/120/1202.png", new BMap.Size(100, 100));
 		var marker6 = new BMap.Marker(myp6, { icon: myIcon6 });
 		map.addOverlay(marker6);
 
-		var myIcon7 = new BMap.Icon("img/icon/一站式路线图标/120/1203.png", new BMap.Size(100, 100));
+		myIcon7 = new BMap.Icon("img/icon/一站式路线图标/120/1203.png", new BMap.Size(100, 100));
 		var marker7 = new BMap.Marker(myp7, { icon: myIcon7 });
 		map.addOverlay(marker7);
 
-		var myIcon8 = new BMap.Icon("img/icon/一站式路线图标/120/1204.png", new BMap.Size(100, 100));
+		myIcon8 = new BMap.Icon("img/icon/一站式路线图标/120/1204.png", new BMap.Size(100, 100));
 		var marker8 = new BMap.Marker(myp8, { icon: myIcon8 });
 		map.addOverlay(marker8);
 
@@ -498,8 +506,6 @@ function addroot2() {
 	map.addOverlay(lab8);
 
 }
-
-addroot2();
 
 function addroot3() {
 	//创建驾车实例
@@ -563,23 +569,23 @@ function addroot3() {
 			map.addOverlay(myline);
 		}
 
-		var myIcon9 = new BMap.Icon("img/icon/一站式路线图标/130/1301.png", new BMap.Size(100, 100));
+		myIcon9 = new BMap.Icon("img/icon/一站式路线图标/130/1301.png", new BMap.Size(100, 100));
 		var marker9 = new BMap.Marker(myp9, { icon: myIcon9 });
 		map.addOverlay(marker9);
 
-		var myIcon10 = new BMap.Icon("img/icon/一站式路线图标/130/1302.png", new BMap.Size(100, 100));
+		myIcon10 = new BMap.Icon("img/icon/一站式路线图标/130/1302.png", new BMap.Size(100, 100));
 		var marker10 = new BMap.Marker(myp10, { icon: myIcon10 });
 		map.addOverlay(marker10);
 
-		var myIcon11 = new BMap.Icon("img/icon/一站式路线图标/130/1303.png", new BMap.Size(100, 100));
+		myIcon11 = new BMap.Icon("img/icon/一站式路线图标/130/1303.png", new BMap.Size(100, 100));
 		var marker11 = new BMap.Marker(myp11, { icon: myIcon11 });
 		map.addOverlay(marker11);
 
-		var myIcon12 = new BMap.Icon("img/icon/一站式路线图标/130/1304.png", new BMap.Size(100, 100));
+		myIcon12 = new BMap.Icon("img/icon/一站式路线图标/130/1304.png", new BMap.Size(100, 100));
 		var marker12 = new BMap.Marker(myp12, { icon: myIcon12 });
 		map.addOverlay(marker12);
 
-		var myIcon13 = new BMap.Icon("img/icon/一站式路线图标/130/1305.png", new BMap.Size(100, 100));
+		myIcon13 = new BMap.Icon("img/icon/一站式路线图标/130/1305.png", new BMap.Size(100, 100));
 		var marker13 = new BMap.Marker(myp13, { icon: myIcon13 });
 		map.addOverlay(marker13);
 	}
@@ -601,8 +607,6 @@ function addroot3() {
 	map.addOverlay(lab13);
 
 }
-
-addroot3();
 
 function addroot4() {
 	//创建驾车实例
@@ -665,19 +669,19 @@ function addroot4() {
 			map.addOverlay(myline);
 		}
 
-		var myIcon14 = new BMap.Icon("img/icon/一站式路线图标/210/2101.png", new BMap.Size(100, 100));
+		myIcon14 = new BMap.Icon("img/icon/一站式路线图标/210/2101.png", new BMap.Size(100, 100));
 		var marker14 = new BMap.Marker(myp14, { icon: myIcon14 });
 		map.addOverlay(marker14);
 
-		var myIcon15 = new BMap.Icon("img/icon/一站式路线图标/210/2102.png", new BMap.Size(100, 100));
+		myIcon15 = new BMap.Icon("img/icon/一站式路线图标/210/2102.png", new BMap.Size(100, 100));
 		var marker15 = new BMap.Marker(myp15, { icon: myIcon15 });
 		map.addOverlay(marker15);
 
-		var myIcon16 = new BMap.Icon("img/icon/一站式路线图标/210/2103.png", new BMap.Size(100, 100));
+		myIcon16 = new BMap.Icon("img/icon/一站式路线图标/210/2103.png", new BMap.Size(100, 100));
 		var marker16 = new BMap.Marker(myp16, { icon: myIcon16 });
 		map.addOverlay(marker16);
 
-		var myIcon17 = new BMap.Icon("img/icon/一站式路线图标/210/2104.png", new BMap.Size(100, 100));
+		myIcon17 = new BMap.Icon("img/icon/一站式路线图标/210/2104.png", new BMap.Size(100, 100));
 		var marker17 = new BMap.Marker(myp17, { icon: myIcon17 });
 		map.addOverlay(marker17);
 
@@ -698,8 +702,6 @@ function addroot4() {
 	map.addOverlay(lab17);
 
 }
-
-addroot4();
 
 function addroot5() {
 	//创建驾车实例
@@ -762,19 +764,19 @@ function addroot5() {
 			map.addOverlay(myline);
 		}
 
-		var myIcon18 = new BMap.Icon("img/icon/一站式路线图标/220/2201.png", new BMap.Size(100, 100));
+		myIcon18 = new BMap.Icon("img/icon/一站式路线图标/220/2201.png", new BMap.Size(100, 100));
 		var marker18 = new BMap.Marker(myp18, { icon: myIcon18 });
 		map.addOverlay(marker18);
 
-		var myIcon19 = new BMap.Icon("img/icon/一站式路线图标/220/2202.png", new BMap.Size(100, 100));
+		myIcon19 = new BMap.Icon("img/icon/一站式路线图标/220/2202.png", new BMap.Size(100, 100));
 		var marker19 = new BMap.Marker(myp19, { icon: myIcon19 });
 		map.addOverlay(marker19);
 
-		var myIcon20 = new BMap.Icon("img/icon/一站式路线图标/220/2203.png", new BMap.Size(100, 100));
+		myIcon20 = new BMap.Icon("img/icon/一站式路线图标/220/2203.png", new BMap.Size(100, 100));
 		var marker20 = new BMap.Marker(myp20, { icon: myIcon20 });
 		map.addOverlay(marker20);
 
-		var myIcon21 = new BMap.Icon("img/icon/一站式路线图标/220/2204.png", new BMap.Size(100, 100));
+		myIcon21 = new BMap.Icon("img/icon/一站式路线图标/220/2204.png", new BMap.Size(100, 100));
 		var marker21 = new BMap.Marker(myp21, { icon: myIcon21 });
 		map.addOverlay(marker21);
 
@@ -794,8 +796,6 @@ function addroot5() {
 	map.addOverlay(lab21);
 
 }
-
-addroot5();
 
 function addroot6() {
 	//创建驾车实例
@@ -859,23 +859,23 @@ function addroot6() {
 			map.addOverlay(myline);
 		}
 
-		var myIcon22 = new BMap.Icon("img/icon/一站式路线图标/230/2301.png", new BMap.Size(100, 100));
+		myIcon22 = new BMap.Icon("img/icon/一站式路线图标/230/2301.png", new BMap.Size(100, 100));
 		var marker22 = new BMap.Marker(myp22, { icon: myIcon22 });
 		map.addOverlay(marker22);
 
-		var myIcon23 = new BMap.Icon("img/icon/一站式路线图标/230/2302.png", new BMap.Size(100, 100));
+		myIcon23 = new BMap.Icon("img/icon/一站式路线图标/230/2302.png", new BMap.Size(100, 100));
 		var marker23 = new BMap.Marker(myp23, { icon: myIcon23 });
 		map.addOverlay(marker23);
 
-		var myIcon24 = new BMap.Icon("img/icon/一站式路线图标/230/2303.png", new BMap.Size(100, 100));
+		myIcon24 = new BMap.Icon("img/icon/一站式路线图标/230/2303.png", new BMap.Size(100, 100));
 		var marker24 = new BMap.Marker(myp24, { icon: myIcon24 });
 		map.addOverlay(marker24);
 
-		var myIcon25 = new BMap.Icon("img/icon/一站式路线图标/230/2304.png", new BMap.Size(100, 100));
+		myIcon25 = new BMap.Icon("img/icon/一站式路线图标/230/2304.png", new BMap.Size(100, 100));
 		var marker25 = new BMap.Marker(myp25, { icon: myIcon25 });
 		map.addOverlay(marker25);
 
-		var myIcon26 = new BMap.Icon("img/icon/一站式路线图标/230/2305.png", new BMap.Size(100, 100));
+		myIcon26 = new BMap.Icon("img/icon/一站式路线图标/230/2305.png", new BMap.Size(100, 100));
 		var marker26 = new BMap.Marker(myp26, { icon: myIcon26 });
 		map.addOverlay(marker26);
 	}
@@ -897,8 +897,6 @@ function addroot6() {
 	map.addOverlay(lab26);
 
 }
-
-addroot6();
 
 function addroot7() {
 	//创建驾车实例
@@ -962,23 +960,23 @@ function addroot7() {
 			map.addOverlay(myline);
 		}
 
-		var myIcon27 = new BMap.Icon("img/icon/一站式路线图标/310/3101.png", new BMap.Size(100, 100));
+		myIcon27 = new BMap.Icon("img/icon/一站式路线图标/310/3101.png", new BMap.Size(100, 100));
 		var marker27 = new BMap.Marker(myp27, { icon: myIcon27 });
 		map.addOverlay(marker27);
 
-		var myIcon28 = new BMap.Icon("img/icon/一站式路线图标/310/3102.png", new BMap.Size(100, 100));
+		myIcon28 = new BMap.Icon("img/icon/一站式路线图标/310/3102.png", new BMap.Size(100, 100));
 		var marker28 = new BMap.Marker(myp28, { icon: myIcon28 });
 		map.addOverlay(marker28);
 
-		var myIcon29 = new BMap.Icon("img/icon/一站式路线图标/310/3103.png", new BMap.Size(100, 100));
+		myIcon29 = new BMap.Icon("img/icon/一站式路线图标/310/3103.png", new BMap.Size(100, 100));
 		var marker29 = new BMap.Marker(myp29, { icon: myIcon29 });
 		map.addOverlay(marker29);
 
-		var myIcon30 = new BMap.Icon("img/icon/一站式路线图标/310/3104.png", new BMap.Size(100, 100));
+		myIcon30 = new BMap.Icon("img/icon/一站式路线图标/310/3104.png", new BMap.Size(100, 100));
 		var marker30 = new BMap.Marker(myp30, { icon: myIcon30 });
 		map.addOverlay(marker30);
 
-		var myIcon31 = new BMap.Icon("img/icon/一站式路线图标/310/3105.png", new BMap.Size(100, 100));
+		myIcon31 = new BMap.Icon("img/icon/一站式路线图标/310/3105.png", new BMap.Size(100, 100));
 		var marker31 = new BMap.Marker(myp31, { icon: myIcon31 });
 		map.addOverlay(marker31);
 
@@ -1001,8 +999,6 @@ function addroot7() {
 	map.addOverlay(lab31);
 
 }
-
-addroot7();
 
 function addroot8() {
 	//创建驾车实例
@@ -1065,19 +1061,19 @@ function addroot8() {
 			map.addOverlay(myline);
 		}
 
-		var myIcon32 = new BMap.Icon("img/icon/一站式路线图标/320/3201.png", new BMap.Size(100, 100));
+		myIcon32 = new BMap.Icon("img/icon/一站式路线图标/320/3201.png", new BMap.Size(100, 100));
 		var marker32 = new BMap.Marker(myp32, { icon: myIcon32 });
 		map.addOverlay(marker32);
 
-		var myIcon33 = new BMap.Icon("img/icon/一站式路线图标/320/3202.png", new BMap.Size(100, 100));
+		myIcon33 = new BMap.Icon("img/icon/一站式路线图标/320/3202.png", new BMap.Size(100, 100));
 		var marker33 = new BMap.Marker(myp33, { icon: myIcon33 });
 		map.addOverlay(marker33);
 
-		var myIcon34 = new BMap.Icon("img/icon/一站式路线图标/320/3203.png", new BMap.Size(100, 100));
+		myIcon34 = new BMap.Icon("img/icon/一站式路线图标/320/3203.png", new BMap.Size(100, 100));
 		var marker34 = new BMap.Marker(myp34, { icon: myIcon34 });
 		map.addOverlay(marker34);
 
-		var myIcon35 = new BMap.Icon("img/icon/一站式路线图标/320/3204.png", new BMap.Size(100, 100));
+		myIcon35 = new BMap.Icon("img/icon/一站式路线图标/320/3204.png", new BMap.Size(100, 100));
 		var marker35 = new BMap.Marker(myp35, { icon: myIcon35 });
 		map.addOverlay(marker35);
 
@@ -1097,8 +1093,6 @@ function addroot8() {
 	map.addOverlay(lab35);
 
 }
-
-addroot8();
 
 function addroot9() {
 	//创建驾车实例
@@ -1162,23 +1156,23 @@ function addroot9() {
 		}
 
 
-		var myIcon36 = new BMap.Icon("img/icon/一站式路线图标/330/3301.png", new BMap.Size(100, 100));
+		myIcon36 = new BMap.Icon("img/icon/一站式路线图标/330/3301.png", new BMap.Size(100, 100));
 		var marker36 = new BMap.Marker(myp36, { icon: myIcon36 });
 		map.addOverlay(marker36);
 
-		var myIcon37 = new BMap.Icon("img/icon/一站式路线图标/330/3302.png", new BMap.Size(100, 100));
+		myIcon37 = new BMap.Icon("img/icon/一站式路线图标/330/3302.png", new BMap.Size(100, 100));
 		var marker37 = new BMap.Marker(myp37, { icon: myIcon37 });
 		map.addOverlay(marker37);
 
-		var myIcon38 = new BMap.Icon("img/icon/一站式路线图标/330/3303.png", new BMap.Size(100, 100));
+		myIcon38 = new BMap.Icon("img/icon/一站式路线图标/330/3303.png", new BMap.Size(100, 100));
 		var marker38 = new BMap.Marker(myp38, { icon: myIcon38 });
 		map.addOverlay(marker38);
 
-		var myIcon39 = new BMap.Icon("img/icon/一站式路线图标/330/3304.png", new BMap.Size(100, 100));
+		myIcon39 = new BMap.Icon("img/icon/一站式路线图标/330/3304.png", new BMap.Size(100, 100));
 		var marker39 = new BMap.Marker(myp39, { icon: myIcon39 });
 		map.addOverlay(marker39);
 
-		var myIcon40 = new BMap.Icon("img/icon/一站式路线图标/330/3304.png", new BMap.Size(100, 100));
+		myIcon40 = new BMap.Icon("img/icon/一站式路线图标/330/3304.png", new BMap.Size(100, 100));
 		var marker40 = new BMap.Marker(myp40, { icon: myIcon40 });
 		map.addOverlay(marker40);
 
@@ -1201,9 +1195,6 @@ function addroot9() {
 	map.addOverlay(lab40);
 
 }
-
-
-addroot9();
 
 function addroot10() {
 	//创建驾车实例
@@ -1265,23 +1256,21 @@ function addroot10() {
 			map.addOverlay(myline);
 		}
 
-		var myIcon41 = new BMap.Icon("img/icon/一站式路线图标/410/4101.png", new BMap.Size(100, 100));
+		myIcon41 = new BMap.Icon("img/icon/一站式路线图标/410/4101.png", new BMap.Size(100, 100));
 		var marker41 = new BMap.Marker(myp41, { icon: myIcon41 });
 		map.addOverlay(marker41);
 
-		var myIcon42 = new BMap.Icon("img/icon/一站式路线图标/410/4102.png", new BMap.Size(100, 100));
+		myIcon42 = new BMap.Icon("img/icon/一站式路线图标/410/4102.png", new BMap.Size(100, 100));
 		var marker42 = new BMap.Marker(myp42, { icon: myIcon42 });
 		map.addOverlay(marker42);
 
-		var myIcon43 = new BMap.Icon("img/icon/一站式路线图标/410/4103.png", new BMap.Size(100, 100));
+		myIcon43 = new BMap.Icon("img/icon/一站式路线图标/410/4103.png", new BMap.Size(100, 100));
 		var marker43 = new BMap.Marker(myp43, { icon: myIcon43 });
 		map.addOverlay(marker43);
 
-		var myIcon44 = new BMap.Icon("img/icon/一站式路线图标/410/4104.png", new BMap.Size(100, 100));
+		myIcon44 = new BMap.Icon("img/icon/一站式路线图标/410/4104.png", new BMap.Size(100, 100));
 		var marker44 = new BMap.Marker(myp44, { icon: myIcon44 });
 		map.addOverlay(marker44);
-
-
 	}
 
 	var lab41 = new BMap.Label("仙林湖公园", { position: myp41 });        //创建4个label
@@ -1298,8 +1287,6 @@ function addroot10() {
 	map.addOverlay(lab44);
 
 }
-
-addroot10();
 
 function addroot11() {
 	//创建驾车实例
@@ -1360,15 +1347,15 @@ function addroot11() {
 			map.addOverlay(myline);
 		}
 
-		var myIcon49 = new BMap.Icon("img/icon/一站式路线图标/420/4201.png", new BMap.Size(100, 100));
+		myIcon49 = new BMap.Icon("img/icon/一站式路线图标/420/4201.png", new BMap.Size(100, 100));
 		var marker49 = new BMap.Marker(myp49, { icon: myIcon49 });
 		map.addOverlay(marker49);
 
-		var myIcon50 = new BMap.Icon("img/icon/一站式路线图标/420/4202.png", new BMap.Size(100, 100));
+		myIcon50 = new BMap.Icon("img/icon/一站式路线图标/420/4202.png", new BMap.Size(100, 100));
 		var marker50 = new BMap.Marker(myp50, { icon: myIcon50 });
 		map.addOverlay(marker50);
 
-		var myIcon51 = new BMap.Icon("img/icon/一站式路线图标/420/4203.png", new BMap.Size(100, 100));
+		myIcon51 = new BMap.Icon("img/icon/一站式路线图标/420/4203.png", new BMap.Size(100, 100));
 		var marker51 = new BMap.Marker(myp51, { icon: myIcon51 });
 		map.addOverlay(marker51);
 
@@ -1385,8 +1372,6 @@ function addroot11() {
 	map.addOverlay(lab51);
 
 }
-
-addroot11();
 
 function addroot12() {
 	//创建驾车实例
@@ -1448,19 +1433,19 @@ function addroot12() {
 			map.addOverlay(myline);
 		}
 
-		var myIcon45 = new BMap.Icon("img/icon/一站式路线图标/430/4301.png", new BMap.Size(100, 100));
+		myIcon45 = new BMap.Icon("img/icon/一站式路线图标/430/4301.png", new BMap.Size(100, 100));
 		var marker45 = new BMap.Marker(myp45, { icon: myIcon45 });
 		map.addOverlay(marker45);
 
-		var myIcon46 = new BMap.Icon("img/icon/一站式路线图标/430/4302.png", new BMap.Size(100, 100));
+		myIcon46 = new BMap.Icon("img/icon/一站式路线图标/430/4302.png", new BMap.Size(100, 100));
 		var marker46 = new BMap.Marker(myp46, { icon: myIcon46 });
 		map.addOverlay(marker46);
 
-		var myIcon47 = new BMap.Icon("img/icon/一站式路线图标/430/4303.png", new BMap.Size(100, 100));
+		myIcon47 = new BMap.Icon("img/icon/一站式路线图标/430/4303.png", new BMap.Size(100, 100));
 		var marker47 = new BMap.Marker(myp47, { icon: myIcon47 });
 		map.addOverlay(marker47);
 
-		var myIcon48 = new BMap.Icon("img/icon/一站式路线图标/430/4304.png", new BMap.Size(100, 100));
+		myIcon48 = new BMap.Icon("img/icon/一站式路线图标/430/4304.png", new BMap.Size(100, 100));
 		var marker48 = new BMap.Marker(myp48, { icon: myIcon48 });
 		map.addOverlay(marker48);
 	}
@@ -1480,140 +1465,17 @@ function addroot12() {
 
 }
 
-addroot12();
-
-//========================================================搜索附近功能=======================================================
-function G(id) {
-	return document.getElementById(id);
-}
-//鼠标放在下拉列表上的事件
-ac.addEventListener("onhighlight", function (e) {
-	var str = "";
-	var _value = e.fromitem.value;
-	var value = "";
-	if (e.fromitem.index > -1) {
-		value = _value.province + _value.city + _value.district + _value.street + _value.business;
-	}
-	str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
-	value = "";
-	if (e.toitem.index > -1) {
-		_value = e.toitem.value;
-		value = _value.province + _value.city + _value.district + _value.street + _value.business;
-	}
-	str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
-	G("searchResultPanel").innerHTML = str;
-});
-//鼠标点击下拉列表后的事件
-var myValue;
-ac.addEventListener("onconfirm", function (e) {
-	var _value = e.item.value;
-	myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
-	G("searchResultPanel").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
-	searchevent();
-});
-//设置环形中心点图标
-var icon = {
-	url: "img/marker.png",
-	width: 32,
-	height: 44
-};
-//设置环形菜单图标
-var menus = [{
-	id: 1,
-	icon: "img/1.png",
-	title: "目标",
-	href: "https://www.baidu.com",
-	target: "_blank",
-	cb: callback
-},
-{
-	id: 2,
-	icon: "img/2.png",
-	title: "购物车",
-	cb: callback
-},
-{
-	id: 3,
-	icon: "img/3.png",
-	title: "主页",
-	cb: callback
-},
-{
-	id: 4,
-	icon: "img/4.png",
-	title: "VIP",
-	cb: callback
-},
-{
-	id: 5,
-	icon: "img/5.png",
-	title: "钱包",
-	cb: callback
-},
-{
-	id: 6,
-	icon: "img/6.png",
-	title: "安全中心",
-	cb: callback
-}];
-// 环形菜单回调函数
-function callback(ele, data) {
-	alert("id：" + data.id + ", lng：" + data.point.lng + ", lat：" + data.point.lat);
-}
-//点击搜索按钮时调用的功能
-function searchevent() {
-	//以第一个搜索结果为中心点创建环形菜单
-	function CreateMapPieMenu() {
-		var pp = local.getResults().getPoi(0).point;
-		new MapPieMenu({
-			id: "container1",
-			centerPoint: pp,
-			points: [pp],
-			menus: menus,
-			type: "circle",
-			radius: 90,
-			width: 36,
-			icon: icon,
-			close: false,
-			Maptype: ["地图", "卫星"],
-			border: "2px dashed blue",
-		});
-		//添加圆形范围
-		var mycircle = new BMap.Circle(pp, 2000,
-        { fillColor: "blue", strokeWeight: 1, fillOpacity: 0.1, strokeOpacity: 0.3 });
-		map.addOverlay(mycircle);
-		/**
-
-          * 判断点是否在圆形内,这里还需要一个循环遍历所有类的点
-          
-          * j  计数
-
-          * param {Point} ourpoint 点对象
-
-          * param {Circle} circle 圆形对象
-
-          * returns {Boolean} 点在圆形内返回true,否则返回false
-
-        */
-		BMapLib.GeoUtils.isPointInCircle = function (ourpoint, mycircle, j) {
-			//point与圆心距离小于圆形半径，则点在圆内，否则在圆外
-			var c = mycircle.getCenter();
-			var r = 2000;//设置的圆的半径
-			var dis = BMapLib.GeoUtils.getDistance(point, c);
-			if (dis >= r)//添加圆内的覆盖物
-			{
-				addfood(ourpoint, j)
-				return true;
-			}
-			else//或者删除圆外覆盖物
-			{
-				return false;
-			}
-		}
-	}
-
-	var local = new BMap.LocalSearch(map, {
-		onSearchComplete: CreateMapPieMenu
-	});
-	local.search(myValue);
+function addRoots() {
+	addroot1();
+	addroot2();
+	addroot3();
+	addroot4();
+	addroot5();
+	addroot6();
+	addroot7();
+	addroot8();
+	addroot9();
+	addroot10();
+	addroot11();
+	addroot12();
 }
