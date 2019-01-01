@@ -966,3 +966,4 @@ var BMapLib = window.BMapLib = BMapLib || {};
         return totalArea; //返回总面积    
 
     }
+})
