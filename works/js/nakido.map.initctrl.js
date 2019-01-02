@@ -3,7 +3,7 @@
 	function foodSwitch() {
 		// 默认停靠位置和偏移量
 		this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
-		this.defaultOffset = new BMap.Size(10 + 120 * offset, 70);
+		this.defaultOffset = new BMap.Size(10 + 120 * offset, 10);
 	}
 
 	// 通过JavaScript的prototype属性继承于BMap.Control
@@ -74,7 +74,7 @@ function toggleOverlay(type) {
 //初始化地图，设置中心点坐标和地图级别
 map.enableScrollWheelZoom();
 map.centerAndZoom(new BMap.Point(118.92319, 32.098621), 17);
-map.addControl(new BMap.NavigationControl());
+map.addControl(new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL }));
 
 addSwitch("Food", 0);
 addSwitch("Play", 1);
