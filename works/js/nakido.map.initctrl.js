@@ -1,9 +1,9 @@
-﻿function addSwitch(title, offset, e) {
+﻿function addSwitch(title, offset) {
 	// 定义一个控件类,即function
 	function foodSwitch() {
 		// 默认停靠位置和偏移量
-		this.defaultAnchor = BMAP_ANCHOR_TOP_RIGHT;
-		this.defaultOffset = new BMap.Size(10, 10 + 20 * offset);
+		this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
+		this.defaultOffset = new BMap.Size(10 + 120 * offset, 70);
 	}
 
 	// 通过JavaScript的prototype属性继承于BMap.Control
@@ -15,11 +15,18 @@
 		// 创建一个DOM元素
 		var div = document.createElement("div");
 		// 添加文字说明
-		div.appendChild(document.createTextNode(title));
+		//div.appendChild(document.createTextNode(title));
 		// 设置样式
-		div.style.cursor = "pointer";
-		div.style.border = "1px solid gray";
-		div.style.backgroundColor = "white";
+		//div.style.cursor = "pointer";
+		//div.style.border = "1px solid gray";
+		//div.style.backgroundColor = "white";
+
+		var button = document.createElement("button");
+		button.innerHTML = title;
+		// 自定义按钮
+		// var button2 = document.createElement("span");
+		// button2.className = "face";
+		div.appendChild(button);
 
 		// 绑定事件,点击一次放大两级
 		div.onclick = () => {
@@ -69,8 +76,8 @@ map.enableScrollWheelZoom();
 map.centerAndZoom(new BMap.Point(118.92319, 32.098621), 17);
 map.addControl(new BMap.NavigationControl());
 
-addSwitch("Show me the food", 0);
-addSwitch("Show me the playgrounds", 1);
-addSwitch("Show me the shops", 2);
-addSwitch("Show me the scene", 3);
-addSwitch("Show me the lines", 4);
+addSwitch("Food", 0);
+addSwitch("Play", 1);
+addSwitch("Shop", 2);
+addSwitch("Scene", 3);
+addSwitch("Guides", 4);
