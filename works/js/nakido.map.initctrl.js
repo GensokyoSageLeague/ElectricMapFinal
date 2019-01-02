@@ -20,10 +20,11 @@
 		div.style.cursor = "pointer";
 		div.style.border = "1px solid gray";
 		div.style.backgroundColor = "white";
+
 		// 绑定事件,点击一次放大两级
 		div.onclick = () => {
-			map.clearOverlays();
-			e();
+			//map.clearOverlays();
+			toggleOverlay(offset);
 		}
 		// 添加DOM元素到地图中
 		map.getContainer().appendChild(div);
@@ -32,13 +33,44 @@
 	}
 
 	// 创建控件
-	var myZoomCtrl = new foodSwitch();
+	// var myZoomCtrl = new foodSwitch();
 	// 添加到地图当中
-	map.addControl(myZoomCtrl);
+	map.addControl(new foodSwitch());
 }
 
-addSwitch("Show me the food", 0, addFood);
-addSwitch("Show me the playgrounds", 1, addPlay);
-addSwitch("Show me the shops", 2, addShop);
-addSwitch("Show me the scene", 3, addScene);
-addSwitch("Show me the lines", 4, addRoots);
+var overlayStates = [false, false, false, false, false];
+
+function toggleOverlay(type) {
+	overlayStates[4] = false;
+	overlayStates[type] = !overlayStates[type];
+	if (overlayStates[4]) {
+		overlayStates = [false, false, false, false, true];
+	}
+	map.clearOverlays();
+	if (overlayStates[0]) {
+		addFood();
+	}
+	if (overlayStates[1]) {
+		addPlay();
+	}
+	if (overlayStates[2]) {
+		addShop();
+	}
+	if (overlayStates[3]) {
+		addScene();
+	}
+	if (overlayStates[4]) {
+		addRoots();
+	}
+}
+
+//初始化地图，设置中心点坐标和地图级别
+map.enableScrollWheelZoom();
+map.centerAndZoom(new BMap.Point(118.92319, 32.098621), 17);
+map.addControl(new BMap.NavigationControl());
+
+addSwitch("Show me the food", 0);
+addSwitch("Show me the playgrounds", 1);
+addSwitch("Show me the shops", 2);
+addSwitch("Show me the scene", 3);
+addSwitch("Show me the lines", 4);
