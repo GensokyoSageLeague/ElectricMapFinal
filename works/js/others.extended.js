@@ -62,8 +62,8 @@ var menus = [{
 {
 	id: 5,
 	icon: "img/5.png",
-	title: "钱包",
-	cb: callback
+	title: "攻略",
+	cb: callback5
 },
 {
 	id: 6,
@@ -74,6 +74,27 @@ var menus = [{
 // 环形菜单回调函数
 function callback1(ele, data) {
     panduanfood();
+}
+var content_nakido_def;
+function callback5(ele, data) {
+	for (var i = 0; i < 3; i++) {
+		random = Math.ceil(Math.random() * 12)
+		map.clearOverlays();
+		addRootsN(random);
+	}
+	var opts = {
+		width: 320,
+		height: 100,
+	}
+	content_nakido_def = '<table><tbody><tr class="ue-table-interlace-color-single firstRow"><td valign="top" style="word-break: break-all; border-width: 1px; border-style: solid; border-color: rgb(221, 221, 221);">线路一</td><td valign="top" style="word-break: break-all; border-width: 1px; border-style: solid; border-color: rgb(221, 221, 221);"> ' +
+		'ttt' +
+		'</td></tr><tr class="ue-table-interlace-color-double"><td valign="top" style="word-break: break-all; border-width: 1px; border-style: solid; border-color: rgb(221, 221, 221);">线路二</td><td valign="top" style="word-break: break-all; border-width: 1px; border-style: solid; border-color: rgb(221, 221, 221);">' +
+		'ttt' +
+		'</td></tr><tr class="ue-table-interlace-color-double"><td valign="top" style="word-break: break-all; border-width: 1px; border-style: solid; border-color: rgb(221, 221, 221);">线路三</td><td valign="top" style="word-break: break-all; border-width: 1px; border-style: solid; border-color: rgb(221, 221, 221);">' +
+		'ttt';
+	var infoWindow = new BMap.InfoWindow(content_nakido_def, opts);
+	map.openInfoWindow(infoWindow, map.getCenter());
+	alert("");
 }
 function callback(ele, data) {
 	alert("id：" + data.id + ", lng：" + data.point.lng + ", lat：" + data.point.lat);
