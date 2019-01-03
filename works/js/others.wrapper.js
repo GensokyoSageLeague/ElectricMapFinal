@@ -332,7 +332,7 @@ function addroot1() {
 	var driving = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
@@ -427,7 +427,7 @@ function addroot2() {
 	var driving1 = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
@@ -521,7 +521,7 @@ function addroot3() {
 	var driving2 = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
@@ -622,7 +622,7 @@ function addroot4() {
 	var driving3 = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
@@ -717,7 +717,7 @@ function addroot5() {
 	var driving4 = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
@@ -811,7 +811,7 @@ function addroot6() {
 	var driving5 = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
@@ -912,7 +912,7 @@ function addroot7() {
 	var driving6 = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
@@ -1014,7 +1014,7 @@ function addroot8() {
 	var driving7 = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
@@ -1108,7 +1108,7 @@ function addroot9() {
 	var driving8 = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
@@ -1210,7 +1210,7 @@ function addroot10() {
 	var driving9 = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
@@ -1302,7 +1302,7 @@ function addroot11() {
 	var driving11 = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
@@ -1387,7 +1387,7 @@ function addroot12() {
 	var driving10 = new BMap.DrivingRoute(map, {
 		renderOptions: {
 			map: map,
-			autoViewport: true
+			autoViewport: false
 		},
 		onMarkersSet: function (routes) {
 			map.removeOverlay(routes[0].marker); //删除起点
