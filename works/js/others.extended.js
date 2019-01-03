@@ -37,27 +37,26 @@ var icon = {
 var menus = [{
 	id: 1,
 	icon: "img/1.png",
-	title: "目标",
-	href: "https://www.baidu.com",
+	title: "吃喝",
 	target: "_blank",
-	cb: callback
+	cb: callback1
 },
 {
 	id: 2,
 	icon: "img/2.png",
-	title: "购物车",
+	title: "玩",
 	cb: callback
 },
 {
 	id: 3,
 	icon: "img/3.png",
-	title: "主页",
+	title: "乐",
 	cb: callback
 },
 {
 	id: 4,
 	icon: "img/4.png",
-	title: "VIP",
+	title: "购",
 	cb: callback
 },
 {
@@ -73,6 +72,10 @@ var menus = [{
 	cb: callback
 }];
 // 环形菜单回调函数
+function callback1(ele, data) {
+
+    alert("id：" + data.id + ", lng：" + data.point.lng + ", lat：" + data.point.lat);
+}
 function callback(ele, data) {
 	alert("id：" + data.id + ", lng：" + data.point.lng + ", lat：" + data.point.lat);
 }
@@ -97,34 +100,19 @@ function searchevent() {
 		//添加圆形范围
 		var mycircle = new BMap.Circle(pp, 2000,
         { fillColor: "blue", strokeWeight: 1, fillOpacity: 0.1, strokeOpacity: 0.3 });
-		map.addOverlay(mycircle);
-		/**
-
-          * 判断点是否在圆形内,这里还需要一个循环遍历所有类的点
-          
-          * j  计数
-
-          * param {Point} ourpoint 点对象
-
-          * param {Circle} circle 圆形对象
-
-          * returns {Boolean} 点在圆形内返回true,否则返回false
-
-        */
-		BMapLib.GeoUtils.isPointInCircle = function (ourpoint, mycircle, j) {
-			//point与圆心距离小于圆形半径，则点在圆内，否则在圆外
-			var c = mycircle.getCenter();
-			var r = 2000;//设置的圆的半径
-			var dis = BMapLib.GeoUtils.getDistance(point, c);
-			if (dis >= r)//添加圆内的覆盖物
-			{
-				addfood(ourpoint, j)
-				return true;
-			}
-			else//或者删除圆外覆盖物
-			{
-				return false;
-			}
+        map.addOverlay(mycircle);
+        //添加我们的point
+        var foodpoint = [
+                new BMap.Point(118.92319, 32.098621),
+                new BMap.Point(118.897053, 32.138898),
+                new BMap.Point(118.922949, 32.099666),
+        ];
+        //判断点是否在圆内
+        for (var i = 0, pointsLen = foodpoint.length; i < pointsLen; i++) {
+            if (BMapLib.GeoUtils.isPointInCircle(foodpoint[i], mycircle)) {
+                var marker = new BMap.Marker(foodpoint[i]); //将点转化成标注点
+                map.addOverlay(marker);  //将标注点添加到地图上
+            }
 		}
 	}
 

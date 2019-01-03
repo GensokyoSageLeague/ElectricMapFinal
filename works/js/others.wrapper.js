@@ -20,6 +20,7 @@ var foodpoint_foodname3 = new Array("荔浦芋头", "芒果西米流心慕斯", 
 var myIcon;
 
 function addfood(point, i) {
+
 	var mk = new BMap.Marker(point, { icon: myIcon });
 	map.addOverlay(mk);
 	//添加图标点击事件
