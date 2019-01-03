@@ -277,7 +277,32 @@ function panduanfood() {
 //判断在圆内的玩乐
 function panduanplay() {
     var playpoint = [
-        //数据未添加
+        new BMap.Point(118.913797, 32.103625),
+        new BMap.Point(118.929631, 32.105761),
+        new BMap.Point(118.933773, 32.108941),
+        new BMap.Point(118.90181, 32.056877),
+        new BMap.Point(118.923621, 32.098598),
+        new BMap.Point(118.921064, 32.102422),
+        new BMap.Point(118.915785, 32.103545),
+        new BMap.Point(118.901634, 32.05722),
+        new BMap.Point(118.818982, 32.112931),
+        new BMap.Point(118.87442, 32.111305),
+        new BMap.Point(118.946532, 32.110063),
+        new BMap.Point(118.923122, 32.098989),
+        new BMap.Point(118.929919, 32.123146),
+        new BMap.Point(118.90253, 32.058679),
+        new BMap.Point(118.908254, 32.038408),
+        new BMap.Point(118.917626, 32.102513),
+        new BMap.Point(118.91678, 32.10251),
+        new BMap.Point(118.826786, 32.120075),
+        new BMap.Point(118.915325, 32.103252),
+        new BMap.Point(118.919988, 32.10341),
+        new BMap.Point(118.928525, 32.107726),
+        new BMap.Point(118.917938, 32.103884),
+        new BMap.Point(118.836935, 32.110653),
+        new BMap.Point(118.923167, 32.097933),
+        new BMap.Point(118.937043, 32.10938),
+        new BMap.Point(118.992498, 32.127648),
     ];
     for (var i = 0, pointsLen = playpoint.length; i < pointsLen; i++) {
         if (BMapLib.GeoUtils.isPointInCircle(playpoint[i], mycircle)) {
@@ -359,7 +384,19 @@ function panduanplay() {
 //判断在圆内的景点
 function panduanscene() {
     var scenepoint = [
-        //数据未添加
+        new BMap.Point(118.955669, 32.15109),
+        new BMap.Point(118.964317, 32.155155),
+        new BMap.Point(118.960047, 32.151708),
+        new BMap.Point(118.817139, 32.146839),
+        new BMap.Point(118.822117, 32.207718),
+        new BMap.Point(118.795552, 32.127325),
+        new BMap.Point(118.813834, 32.144368),
+        new BMap.Point(118.809886, 32.140989),
+        new BMap.Point(118.943353, 32.112223),
+        new BMap.Point(118.986526, 32.126561),
+        new BMap.Point(118.846836, 32.153924),
+        new BMap.Point(118.803277, 32.154106),
+        new BMap.Point(118.965275, 32.15782),
     ];
     for (var i = 0, pointsLen = scenepoint.length; i < pointsLen; i++) {
         if (BMapLib.GeoUtils.isPointInCircle(scenepoint[i], mycircle)) { 
@@ -373,7 +410,12 @@ function panduanscene() {
 //判断在圆内的购物类
 function panduanshop() {
     var shoppoint = [
-        //数据未添加
+        new BMap.Point(118.929972, 32.106072),
+        new BMap.Point(118.908978, 32.097554),
+        new BMap.Point(118.820486, 32.117184),
+        new BMap.Point(118.895116, 32.050862),
+        new BMap.Point(118.928669, 32.108045),
+        new BMap.Point(118.985903, 32.122109),
     ];
     for (var i = 0, pointsLen = shoppoint.length; i < pointsLen; i++) {
         if (BMapLib.GeoUtils.isPointInCircle(shoppoint[i], mycircle)) {
