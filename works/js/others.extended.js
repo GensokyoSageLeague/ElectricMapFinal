@@ -77,9 +77,15 @@ function callback1(ele, data) {
     alert("id：" + data.id + ", lng：" + data.point.lng + ", lat：" + data.point.lat);
 }
 var content_nakido_def;
+var desp_nakido_def = ['',
+'江畔一日游', '马群周边游', '仙林度假游', '栖霞人文游', '青年休闲游',
+'懒癌患者游', '心灵净化游', '城乡养生游', '单身贵族游', '情侣虐狗游',
+'好友欢脱游', '文艺赏景游'];
 function callback5(ele, data) {
+	var randomx = [0, 0, 0];
 	for (var i = 0; i < 3; i++) {
-		random = Math.ceil(Math.random() * 12)
+		random = Math.ceil(Math.random() * 12);
+		randomx[i] = random;
 		map.clearOverlays();
 		addRootsN(random);
 	}
@@ -95,7 +101,9 @@ function callback5(ele, data) {
 		'ttt';
 	var infoWindow = new BMap.InfoWindow(content_nakido_def, opts);
 	map.openInfoWindow(infoWindow, map.getCenter());
-	alert("");
+	alert('路线一：' + desp_nakido_def[randomx[0]] + '\r\n' +
+		'路线二：' + desp_nakido_def[randomx[1]] + '\r\n' +
+		'路线三：' + desp_nakido_def[randomx[2]]);
 }
 function callback(ele, data) {
 	alert("id：" + data.id + ", lng：" + data.point.lng + ", lat：" + data.point.lat);
