@@ -44,19 +44,19 @@ var menus = [{
 {
 	id: 2,
 	icon: "img/2.png",
-	title: "玩",
+	title: "玩乐",
 	cb: callback
 },
 {
 	id: 3,
 	icon: "img/3.png",
-	title: "乐",
+	title: "景点",
 	cb: callback
 },
 {
 	id: 4,
 	icon: "img/4.png",
-	title: "购",
+	title: "购物",
 	cb: callback
 },
 {
@@ -73,8 +73,7 @@ var menus = [{
 }];
 // 环形菜单回调函数
 function callback1(ele, data) {
-
-    alert("id：" + data.id + ", lng：" + data.point.lng + ", lat：" + data.point.lat);
+    panduanfood();
 }
 var content_nakido_def;
 var desp_nakido_def = ['',
@@ -108,6 +107,8 @@ function callback5(ele, data) {
 function callback(ele, data) {
 	alert("id：" + data.id + ", lng：" + data.point.lng + ", lat：" + data.point.lat);
 }
+
+var mycircle;
 //点击搜索按钮时调用的功能
 function searchevent() {
 	//以第一个搜索结果为中心点创建环形菜单
@@ -127,26 +128,28 @@ function searchevent() {
 			border: "2px dashed blue",
 		});
 		//添加圆形范围
-		var mycircle = new BMap.Circle(pp, 2000,
+	    mycircle = new BMap.Circle(pp, 2000,
         { fillColor: "blue", strokeWeight: 1, fillOpacity: 0.1, strokeOpacity: 0.3 });
         map.addOverlay(mycircle);
-        //添加我们的point
-        var foodpoint = [
-                new BMap.Point(118.92319, 32.098621),
-                new BMap.Point(118.897053, 32.138898),
-                new BMap.Point(118.922949, 32.099666),
-        ];
-        //判断点是否在圆内
-        for (var i = 0, pointsLen = foodpoint.length; i < pointsLen; i++) {
-            if (BMapLib.GeoUtils.isPointInCircle(foodpoint[i], mycircle)) {
-                var marker = new BMap.Marker(foodpoint[i]); //将点转化成标注点
-                map.addOverlay(marker);  //将标注点添加到地图上
-            }
-		}
 	}
 
 	var local = new BMap.LocalSearch(map, {
 		onSearchComplete: CreateMapPieMenu
 	});
 	local.search(myValue);
+}
+function panduanfood() {
+    //添加我们的point
+    var foodpoint = [
+        new BMap.Point(118.92319, 32.098621),
+        new BMap.Point(118.897053, 32.138898),
+        new BMap.Point(118.922949, 32.099666),
+    ];
+    //判断点是否在圆内
+    for (var i = 0, pointsLen = foodpoint.length; i < pointsLen; i++) {
+        if (BMapLib.GeoUtils.isPointInCircle(foodpoint[i], mycircle)) {
+            var marker = new BMap.Marker(foodpoint[i]); //将点转化成标注点
+            map.addOverlay(marker);  //将标注点添加到地图上
+        }
+    }
 }
