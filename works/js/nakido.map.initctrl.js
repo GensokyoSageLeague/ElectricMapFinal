@@ -93,8 +93,6 @@ shareSwitch.prototype.initialize = function (map) {
 	var div = document.createElement("div");
 	var button = document.createElement("button");
 	button.innerHTML = "Share";
-	button.setAttribute("data-toggle", "modal");
-	button.setAttribute("data-target", "modal-share");
 	div.appendChild(button);
 	// 绑定事件
 	div.onclick = () => {
