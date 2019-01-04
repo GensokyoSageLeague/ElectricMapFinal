@@ -74,15 +74,19 @@ var menus = [{
 // 环形菜单回调函数
 function callback1(ele, data) {
     panduanfood();
+    alert("结果已显示在地图中哟(＾Ｕ＾)ノ~ＹＯ");
 }
 function callback2(ele, data) {
     panduanplay();
+    alert("结果已显示在地图中哟(＾Ｕ＾)ノ~ＹＯ");
 }
 function callback3(ele, data) {
     panduanscene();
+    alert("结果已显示在地图中哟(＾Ｕ＾)ノ~ＹＯ");
 }
 function callback4(ele, data) {
     panduanshop();
+    alert("结果已显示在地图中哟(＾Ｕ＾)ノ~ＹＯ");
 }
 var content_nakido_def;
 var desp_nakido_def = ['',

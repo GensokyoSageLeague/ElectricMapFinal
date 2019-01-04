@@ -22,7 +22,7 @@ var myIcon;
 function addfood(point, i) {
 
 	var mk = new BMap.Marker(point, { icon: myIcon });
-	map.addOverlay(mk);
+    map.addOverlay(mk);
 	//添加图标点击事件
 	mk.addEventListener("click", function () {
 		var opts = {
@@ -320,13 +320,13 @@ function addScene() {
 
 //========================================================一站式线路类类标注点击事件及消息窗口=======================================================
 function labsetStyle(lab) {
-	lab.setStyle({
-		color: "blue", //字体颜色
-		fontSize: "16px",//字体大小 　　
-		backgroundColor: "0.05", //文本标注背景颜色　
-		border: "0",
-		fontWeight: "bold" //字体加粗});
-	});
+    lab.setStyle({
+        fontFamily: "微软雅黑",
+        color: "bold", //字体颜色
+        fontSize: "15px",//字体大小 　　
+        backgroundColor: "0.05", //文本标注背景颜色　
+        border: "0",
+    });
 }
 function addroot1() {
 	//创建驾车实例
@@ -361,7 +361,8 @@ function addroot1() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 250,     // 信息窗口宽度    
@@ -456,7 +457,8 @@ function addroot2() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 200,     // 信息窗口宽度    
@@ -551,7 +553,8 @@ function addroot3() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 200,     // 信息窗口宽度    
@@ -651,7 +654,8 @@ function addroot4() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 200,     // 信息窗口宽度    
@@ -746,7 +750,8 @@ function addroot5() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 200,     // 信息窗口宽度    
@@ -841,7 +846,8 @@ function addroot6() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 200,     // 信息窗口宽度    
@@ -942,7 +948,8 @@ function addroot7() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 200,     // 信息窗口宽度    
@@ -1043,7 +1050,8 @@ function addroot8() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 200,     // 信息窗口宽度    
@@ -1137,7 +1145,8 @@ function addroot9() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 200,     // 信息窗口宽度    
@@ -1238,7 +1247,8 @@ function addroot10() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 200,     // 信息窗口宽度    
@@ -1329,7 +1339,8 @@ function addroot11() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 200,     // 信息窗口宽度    
@@ -1415,7 +1426,8 @@ function addroot12() {
 	//处理回调的路线
 	function addinformation(lines) {
 		for (var line in lines) {
-			myline = lines[line].getPolyline();
+            myline = lines[line].getPolyline();
+            myline.setStrokeColor('red'); 
 			myline.addEventListener("click", function () {
 				var opts = {
 					width: 200,     // 信息窗口宽度    
